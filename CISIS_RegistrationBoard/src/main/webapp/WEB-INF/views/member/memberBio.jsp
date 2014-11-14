@@ -52,7 +52,6 @@
                         <form:input path="member.lastName" size="20" />
                 </td>
             </tr>
-            <tr>
                 <td>
                     <label class="alignCenter"  for="addressLine1">
                         <strong><fmt:message key="label.address.line.1" /></strong></label>
@@ -139,62 +138,7 @@
                     </form:select>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <label class="alignCenter"  for="divisionCode">
-                        <strong><fmt:message key="label.division" /></strong></label>
 
-                    <form:select path="divisionCode">
-                        <form:options items="${sessionScope.divisions}" itemLabel="description" itemValue="codeValueSequence"/>
-                    </form:select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label class="alignCenter"  for="levelCode">
-                        <strong><fmt:message key="label.level" /></strong></label>
-
-                    <form:select path="levelCode">
-                        <form:options items="${sessionScope.levels}" itemLabel="description" itemValue="codeValueSequence"/>
-                    </form:select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label class="alignCenter"  for="clubCode">
-                        <strong><fmt:message key="label.club" /></strong></label>
-
-                    <form:select path="clubCode">
-                        <form:options items="${sessionScope.clubs}" itemLabel="description" itemValue="codeValueSequence"/>
-                    </form:select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label class="alignCenter"  for="registrationDate">
-                        <strong><fmt:message key="label.registration.date" /></strong></label>
-                        <form:input path="registrationDate" size="10" />
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <form:checkbox path="allowInformationOnWebsite" value="true" />
-                    <fmt:message key="label.allow.info" />
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <form:checkbox path="allowPhotoUse" value="true" />
-                    <fmt:message key="label.allow.photos" />
-                </td>
-            </tr>
-            <tr><td><hr/></td></tr>
-            <tr><td><h2>Thanks for Supporting Squash PEI - Good Luck This Year!!</h2></td></tr>
-
-            <tr/>
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" value=<fmt:message key="label.save"/>

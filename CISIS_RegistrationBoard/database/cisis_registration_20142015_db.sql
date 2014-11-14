@@ -2,8 +2,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS cisis_squash_pei_db;
-use cisis_squash_pei_db;
+CREATE DATABASE IF NOT EXISTS cisis_registration_db;
+use cisis_registration_db;
 
 --
 -- Table structure for table `code_type`
@@ -259,9 +259,31 @@ CREATE TABLE IF NOT EXISTS `member_bio` (
   `gender_code` int(3) DEFAULT NULL COMMENT 'code type 6'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Member biographical information';
 
+CREATE TABLE IF NOT EXISTS `member_bio_registration` (
+  `member_id` int(6) DEFAULT NULL,
+  `salutation_code` int(3) DEFAULT NULL COMMENT 'Code type 3',
+  `previous_surnames` varchar(100) DEFAULT NULL COMMENT 'Any priour surnames',
+  `email_to_members` tinyint(1) DEFAULT NULL COMMENT 'Permission to distribute email to members',
+  `email_to_business` tinyint(1) DEFAULT NULL COMMENT 'Permission to distribute email to business',
+  `email_to_government` tinyint(1) DEFAULT NULL COMMENT 'Permission to distribute email to government',
+  `email_to_peida_executive` tinyint(1) DEFAULT NULL COMMENT 'Permission to distribute email to PEIDA Executive',
+  `website_address` varchar(50) DEFAULT NULL,
+  `bilingual_e_f_ind` tinyint(1) DEFAULT NULL COMMENT 'boolean for English/French',
+  `bilingual_other` varchar(50) DEFAULT NULL COMMENT 'other bilingual combination',
+  `canadian_citizen_ind` tinyint(1) DEFAULT NULL,
+  `landed_immigrant_ind` tinyint(1) DEFAULT NULL,
+  `country_of_origin_code` int(3) DEFAULT NULL COMMENT 'Country of origin',
+  `immigrant_authorized_ind` tinyint(1) DEFAULT NULL,
+  `immigrant_authorized_expiry_date` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Member biographical information';
+
+
+
 --
 -- Table structure for table `member_squash`
 --
+
+--to be removed when changes made to the program as required to handle this.
 
 CREATE TABLE IF NOT EXISTS `member_squash` (
   `member_id` int(6) DEFAULT NULL,
@@ -273,6 +295,108 @@ CREATE TABLE IF NOT EXISTS `member_squash` (
   `permission_use_photo` tinyint(1) DEFAULT NULL COMMENT 'Permission to use photo',
   `payment_status` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='squash specific member information';
+
+
+
+--
+-- Table structure for table `member_education`
+--
+
+CREATE TABLE IF NOT EXISTS `member_education` (
+  `member_id` int(6) NOT NULL COMMENT 'Member id pk',
+  `me_sequence` int(6) NOT NULL COMMENT 'Sequence number unique in this table.',
+  `program_code` int(3) NOT NULL COMMENT 'Code type 8',
+  `designation` varchar(25) NOT NULL COMMENT 'type of cert.',
+  `me_year` int(4) NOT NULL COMMENT 'Year certification was received',
+  `me_province_code` int(3) NOT NULL COMMENT 'Province education received',
+  `me_institution` varchar(100) NOT NULL COMMENT 'Name of granting institution',
+  `me_core_ind` tinyint(1) NOT NULL COMMENT 'Is this a core eduction',
+  `me_active_ind` bigint(20) unsigned NOT NULL COMMENT 'Active code type',
+  `created_date_time` datetime NOT NULL,
+  `created_user_id` varchar(20) NOT NULL,
+  `updated_date_time` datetime NOT NULL,
+  `updated_user_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`member_id`,`me_sequence`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Member education data';
+
+--
+-- Dumping data for table `member_education`
+--
+
+INSERT INTO `member_education` (`member_id`, `me_sequence`, `program_code`, `designation`, `me_year`, `me_province_code`, `me_institution`, `me_core_ind`, `me_active_ind`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
+(1, 1, 1, '', 2010, 1, 'UPEI', 1, 0, '2014-06-15 00:00:00', 'BJMACLEAN', '2014-08-17 00:06:11', 'BJMACLEAN'),
+(1, 2, 2, '', 2015, 4, 'mcm', 1, 0, '2014-06-15 22:20:10', '', '2014-06-21 19:01:31', ''),
+(1, 3, 2, 'Science', 1995, 5, 'McMaster', 0, 1, '2014-06-15 22:54:41', '', '2014-06-15 22:54:41', ''),
+(9, 1, 3, 'BSc', 1998, 4, 'UPEI', 1, 1, '2014-08-25 09:46:02', 'AlanAdmin', '2014-08-25 09:46:02', 'AlanAdmin'),
+(9, 2, 7, '', 2000, 4, 'Queen Elizabeth Hospital', 1, 1, '2014-08-25 09:46:30', 'AlanAdmin', '2014-08-25 09:46:30', 'AlanAdmin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_employer`
+--
+
+CREATE TABLE IF NOT EXISTS `member_employer` (
+  `member_id` int(6) NOT NULL,
+  `me_sequence` int(11) NOT NULL COMMENT 'sequence of the employer for a given employee',
+  `me_active_ind` tinyint(1) NOT NULL COMMENT 'deleted or not.',
+  `member_employer_primary_ind` tinyint(1) DEFAULT NULL COMMENT 'Primary indicator',
+  `employer_name` varchar(40) NOT NULL COMMENT 'Employer name',
+  `address_1` varchar(30) NOT NULL,
+  `address_2` varchar(30) NOT NULL,
+  `municipality` varchar(30) NOT NULL COMMENT 'Community/town/city',
+  `province_code` int(3) NOT NULL COMMENT 'Code type 5',
+  `postal_code` varchar(6) NOT NULL COMMENT 'Postal code (no dash)',
+  `position_code` int(3) DEFAULT NULL COMMENT 'Code type 15',
+  `practice_area_code` int(3) DEFAULT NULL COMMENT 'Code type 11',
+  `employment_status_code` int(3) DEFAULT NULL COMMENT 'Code type 12',
+  `employment_category_code` int(3) DEFAULT NULL COMMENT 'Code type 13',
+  `funding_source_code` int(3) DEFAULT NULL COMMENT 'Code type 14',
+  `created_date_time` datetime NOT NULL,
+  `created_user_id` varchar(20) NOT NULL,
+  `updated_date_time` datetime NOT NULL,
+  `updated_user_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member_employer`
+--
+
+INSERT INTO `member_employer` (`member_id`, `me_sequence`, `me_active_ind`, `member_employer_primary_ind`, `employer_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `position_code`, `practice_area_code`, `employment_status_code`, `employment_category_code`, `funding_source_code`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
+(1, 1, 0, 1, '1', '2', '3', '4', 4, '5', 1, 1, 1, 1, 1, '2014-08-01 22:05:06', '', '2014-08-17 00:07:34', ''),
+(0, 1, 1, 0, 'Queen Elizabeth Hospital', 'PO Box 6600', '', 'Charlottetown', 4, 'C1A8T5', 1, 1, 1, 1, 1, '2014-08-25 09:48:10', 'AlanAdmin', '2014-08-25 09:48:10', 'AlanAdmin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_employment`
+--
+
+CREATE TABLE IF NOT EXISTS `member_employment` (
+  `member_id` int(6) NOT NULL,
+  `employment_status_code` int(3) DEFAULT NULL COMMENT 'Code type 9',
+  `currency_code` int(3) DEFAULT NULL COMMENT 'Code type 10',
+  `practice_via_telephone_ind` tinyint(1) NOT NULL COMMENT 'employment - do they practice via telephone',
+  `practice_via_internet_ind` tinyint(1) NOT NULL COMMENT 'employment - do they practice via internet',
+  `practice_in_person_ind` tinyint(1) NOT NULL COMMENT 'employment - do they practice in person',
+  `practice_jurisdictions` varchar(200) DEFAULT NULL COMMENT 'Jurisdictions where member practices'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member_employment`
+--
+
+INSERT INTO `member_employment` (`member_id`, `employment_status_code`, `currency_code`, `practice_via_telephone_ind`, `practice_via_internet_ind`, `practice_in_person_ind`, `practice_jurisdictions`) VALUES
+(1, 1, 1, 0, 0, 1, 'TEST'),
+(3, NULL, NULL, 0, 0, 0, NULL),
+(4, NULL, NULL, 0, 0, 0, NULL),
+(5, NULL, NULL, 0, 0, 0, NULL),
+(6, NULL, NULL, 0, 0, 0, NULL),
+(7, NULL, NULL, 0, 0, 0, NULL),
+(8, NULL, NULL, 0, 0, 0, NULL),
+(9, NULL, NULL, 0, 0, 0, NULL);
+
+
 
 --
 -- Table structure for table `notification`
@@ -310,18 +434,6 @@ INSERT INTO `notification` (`notification_id`, `notification_type_code`, `notifi
 (13, 1, 'hi', 1, '2014-09-09 15:07:00', NULL, '2014-09-09 15:07:00', NULL),
 (14, 2, 'ayy lmao', 1, '2014-09-09 15:07:42', NULL, '2014-09-09 15:07:42', NULL);
 
--- Payments table
-CREATE TABLE IF NOT EXISTS `member_payment` (
-  `member_payment_id` int(10) NOT NULL AUTO_INCREMENT,
-  `member_id` int(10) NOT NULL,
-  `payment_amount` double NOT NULL COMMENT 'Amount of payment',
-  `payment_detail` varchar(144) DEFAULT NULL COMMENT 'Comments about the payment',
-  `payment_season_code` int(3) NOT NULL COMMENT 'Code type 21 - indicate which season the payment is for.',
-  `created_date_time` datetime NOT NULL,
-  `created_user_id` varchar(20) NOT NULL,
-  `updated_date_time` datetime NOT NULL,
-  `updated_user_id` varchar(20) NOT NULL,
-  PRIMARY KEY (`member_payment_id`));
 
 INSERT INTO `member_bio` (`member_id`, `first_name`, `middle_name`, `last_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `home_phone`, `cell_phone`, `work_phone`, `work_phone_extension`, `fax_number`, `email_address`, `date_of_birth`, `gender_code`) VALUES
 (2, 'Steve', 'Joseph', 'Banks', '333 There Street', NULL, 'Charlottetown', 5, 'c1b0e3', '9025692222', NULL, NULL, NULL, NULL, 'stevebanks@hollandcollege.com', '19950-01-0', 1),
