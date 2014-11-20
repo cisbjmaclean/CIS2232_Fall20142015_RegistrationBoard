@@ -19,7 +19,7 @@ public class MemberRegistrationBoard {
         member = new Member();
     }
     
-    public int getPaymentStatusCode() {
+/*    public int getPaymentStatusCode() {
         return paymentStatusCode;
     }
 
@@ -82,7 +82,7 @@ public class MemberRegistrationBoard {
     public void setAllowPhotoUse(boolean allowPhotoUse) {
         this.allowPhotoUse = allowPhotoUse;
     }
-
+*/
     
 }
 
