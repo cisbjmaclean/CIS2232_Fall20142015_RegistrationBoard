@@ -1,8 +1,8 @@
 package controller;
 
-import beans.MemberSquash;
+import beans.MemberRegistrationBoard;
 import business.AccessBO;
-import business.MemberSquashBO;
+import business.MemberRegistrationBoardBO;
 import database.CodeValueDAO;
 import forms.Login;
 import java.util.logging.Level;
@@ -40,13 +40,13 @@ public class LoginController {
         if (validCredentials) {
             CodeValueDAO.loadCodes(request);
             mv = new ModelAndView("memberBio");
-            MemberSquash ms = new MemberSquash();
+            MemberRegistrationBoard ms = new MemberRegistrationBoard();
             System.out.println("getting member for " + login.getUsername());
             request.getSession().setAttribute("loggedInUserId", login.getUsername());
-            MemberSquash theMember = MemberSquashBO.getMemberByUserid(login.getUsername());
+            MemberRegistrationBoard theMember = MemberRegistrationBoardBO.getMemberByUserid(login.getUsername());
             theMember.getMember().setPassword(login.getPassword());
             request.getSession().setAttribute("loggedInMember", theMember);
-            mv.addObject("memberSquash", theMember);
+            mv.addObject("memberRegistration", theMember);
         } else {
             mv = new ModelAndView("login");
         }

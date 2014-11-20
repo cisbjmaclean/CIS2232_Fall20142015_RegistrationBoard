@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <form action="memberBioUpdate" method="post">
-    <spring:nestedPath path="memberSquash">
+    <spring:nestedPath path="memberRegistration">
 
         <table> 
             

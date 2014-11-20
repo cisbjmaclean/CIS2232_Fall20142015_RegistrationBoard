@@ -2,7 +2,7 @@ package controller;
 
 import beans.ChangePassword;
 import beans.CodeValue;
-import beans.MemberSquash;
+import beans.MemberRegistrationBoard;
 import beans.Notification;
 import business.MemberBO;
 import business.NotificationBO;
@@ -54,7 +54,7 @@ public class MenuController {
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My information");
-            mv.addObject("memberSquash", (MemberSquash) request.getSession().getAttribute("loggedInMember"));
+            mv.addObject("memberRegistration", (MemberRegistrationBoard) request.getSession().getAttribute("loggedInMember"));
         } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
