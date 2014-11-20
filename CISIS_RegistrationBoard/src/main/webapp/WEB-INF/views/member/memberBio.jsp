@@ -9,9 +9,9 @@
 <form action="memberBioUpdate" method="post">
     <spring:nestedPath path="memberSquash">
 
-        <table>                
-
-            <tr><td><h3>Membership Includes:</h3></td></tr>
+        <table> 
+            
+<!--           <tr><td><h3>Membership Includes:</h3></td></tr>
             <tr><td>✓ Inclusion in the Squash PEI email news distribution list</td></tr>
             <tr><td>✓ Reduced registration fees to Squash PEI sanctioned tournaments and clinics</td></tr>
             <tr><td>✓ Provincial rankings for female/male players, maintained by Squash PEI </td></tr>
@@ -24,6 +24,7 @@
             <tr><td>✓ Signature of Player required(Parent/Guardian if player is Under 18)</td></tr>
             <tr><td>✓ Membership: $ 30 All Divisions (Maximum of $100.00 per immediate family)</td></tr>
             <tr><td><hr/></td></tr>
+           -->
             <tr>
                 <td>
                     <h3><fmt:message key="label.information" /></h3>

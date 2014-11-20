@@ -4,48 +4,60 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-	<definition name="welcome" extends="DefaultTemplateNoMenu">
-	    <put-attribute name="body"	value="/WEB-INF/views/base/welcome.jsp" />
-	</definition>
+    <definition name="welcome" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body"	value="/WEB-INF/views/base/welcome.jsp" />
+    </definition>
+        
+    <definition name="education" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/education.jsp" />
+    </definition>
+    
+    <definition name="employment" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/employment.jsp" />
+    </definition>
 
-	<definition name="main" extends="DefaultTemplateNoMenu">
-	    <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
-	</definition>
+    <definition name="pd" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/pd.jsp" />
+    </definition>
+    
+    <definition name="main" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
+    </definition>
 
-	<definition name="login" extends="DefaultTemplateNoMenu">
-	    <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
-	</definition>
+    <definition name="login" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
+    </definition>
 
-        <definition name="notification" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
-	</definition>
+    <definition name="notification" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
+    </definition>
 
-        <definition name="changePassword" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/member/member_change_password.jsp" />
-	</definition>
+    <definition name="changePassword" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/member_change_password.jsp" />
+    </definition>
 
-        <definition name="notificationAdd" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/notification/notificationAdd.jsp" />
-	</definition>
+    <definition name="notificationAdd" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/notification/notificationAdd.jsp" />
+    </definition>
 
-        <definition name="viewMembers" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/member/viewMembers.jsp" />
-	</definition>
+    <definition name="viewMembers" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/viewMembers.jsp" />
+    </definition>
 
-        <definition name="memberBio" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/member/memberBio.jsp" />
-	</definition>
+    <definition name="memberBio" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/member/memberBio.jsp" />
+    </definition>
 
-        <definition name="main" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
-	</definition>
+    <definition name="main" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
+    </definition>
 
-        <definition name="viewCodeValues" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodeValues.jsp" />
-	</definition>
+    <definition name="viewCodeValues" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodeValues.jsp" />
+    </definition>
 
-        <definition name="viewCodes" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodes.jsp" />
-	</definition>
+    <definition name="viewCodes" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodes.jsp" />
+    </definition>
 
 </tiles-definitions>

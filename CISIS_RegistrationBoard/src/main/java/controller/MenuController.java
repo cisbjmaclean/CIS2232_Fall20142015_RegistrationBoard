@@ -30,6 +30,18 @@ public class MenuController {
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
+        } else if (menu.getAction().equalsIgnoreCase("Education")) {
+            System.out.println("Call to Education JSP");
+            mv = new ModelAndView("education");
+            mv.addObject("informationMessage", "Education");
+        } else if (menu.getAction().equalsIgnoreCase("Employment")) {
+            System.out.println("Call to Employment JSP");
+            mv = new ModelAndView("employment");
+            mv.addObject("informationMessage", "Employment");
+        } else if (menu.getAction().equalsIgnoreCase("Professional Development")) {
+            System.out.println("Call to Professinal Development JSP");
+            mv = new ModelAndView("pd");
+            mv.addObject("informationMessage", "Professional Development");
         } else if (menu.getAction().equalsIgnoreCase("Make Payment")) {
             System.out.println("Payment functionaity to be completed");
             mv = new ModelAndView("main");
@@ -42,11 +54,11 @@ public class MenuController {
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My information");
-            mv.addObject("memberSquash",(MemberSquash) request.getSession().getAttribute("loggedInMember"));
+            mv.addObject("memberSquash", (MemberSquash) request.getSession().getAttribute("loggedInMember"));
         } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
-            mv.addObject("notification",new Notification());
+            mv.addObject("notification", new Notification());
         } else if (menu.getAction().equalsIgnoreCase("View Codes")) {
             System.out.println("User wants to view the codes");
             mv = new ModelAndView("viewCodes");
@@ -55,17 +67,17 @@ public class MenuController {
         } else if (menu.getAction().equalsIgnoreCase("Members")) {
             System.out.println("User wants to view the members");
             mv = new ModelAndView("viewMembers");
-            mv.addObject("members",MemberBO.getAllActiveMembers());
+            mv.addObject("members", MemberBO.getAllActiveMembers());
         } else if (menu.getAction().equalsIgnoreCase("Change Password")) {
             System.out.println("User wants to change password");
             mv = new ModelAndView("changePassword");
             ChangePassword cp = new ChangePassword();
-            cp.setMemberId((String)request.getSession().getAttribute("loggedInUserId"));
-            mv.addObject("changePassword",cp);
+            cp.setMemberId((String) request.getSession().getAttribute("loggedInUserId"));
+            mv.addObject("changePassword", cp);
         } else if (menu.getAction().equalsIgnoreCase("Notifications")) {
             System.out.println("User wants to view the notifications");
             mv = new ModelAndView("notification");
-            mv.addObject("notifications",NotificationBO.getNotifications());
+            mv.addObject("notifications", NotificationBO.getNotifications());
             mv.addObject("menu", new Menu());
         } else {
             mv = new ModelAndView("welcome");

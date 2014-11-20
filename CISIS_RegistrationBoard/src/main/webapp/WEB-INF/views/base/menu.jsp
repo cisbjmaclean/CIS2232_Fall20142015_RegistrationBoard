@@ -8,6 +8,18 @@
                 </td>
             </tr>
             <tr>
+                <td>        <input type="submit" name="action" value="Education">
+                </td>
+            </tr>
+                        <tr>
+                <td>        <input type="submit" name="action" value="Employment">
+                </td>
+            </tr>
+            <tr>
+                <td>        <input type="submit" name="action" value="Professional Development">
+                </td>
+            </tr>
+            <tr>
                 <td>        <input type="submit" name="action" value="Make Payment">
                 </td>
             </tr>
