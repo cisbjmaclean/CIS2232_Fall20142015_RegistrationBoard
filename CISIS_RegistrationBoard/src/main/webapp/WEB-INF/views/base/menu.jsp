@@ -40,7 +40,7 @@
                 </td>
             </tr>
             <tr>
-                <td><a target="_blank" href="https://docs.google.com/document/d/1aeqQ1bkWM6_7kdF5Ot3tP18gNJFXOp-nk8P0-kQ9uns/edit#">View Design</a>
+                <td><a target="_blank" href="https://docs.google.com/document/d/1MsZZUJ0V_jKE6YxYw4VQLaLxcFHwPPVk9x3uDE6Qy8c/edit">View Design</a>
                 </td>
             </tr>
         </table>
