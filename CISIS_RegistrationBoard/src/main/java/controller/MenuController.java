@@ -5,6 +5,7 @@ import beans.CodeValue;
 import beans.MemberRegistration;
 import beans.Notification;
 import business.MemberBO;
+import business.MemberEducationBO;
 import business.NotificationBO;
 import forms.Menu;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,10 @@ public class MenuController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu, HttpServletRequest request) {
         //pass validation if they enter "TEST" and "TEST"
+        
+        
+        MemberRegistration loggedInMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
+        
         System.out.println("Menu post invoked");
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
@@ -33,6 +38,8 @@ public class MenuController {
         } else if (menu.getAction().equalsIgnoreCase("Education")) {
             System.out.println("Call to Education JSP");
             mv = new ModelAndView("education");
+            MemberEducationBO.setupEducation(request, loggedInMember.getMemberId());
+            mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Education");
         } else if (menu.getAction().equalsIgnoreCase("Employment")) {
             System.out.println("Call to Employment JSP");
@@ -54,7 +61,7 @@ public class MenuController {
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My information");
-            mv.addObject("memberRegistration", (MemberRegistration) request.getSession().getAttribute("loggedInMember"));
+            mv.addObject("memberRegistration", loggedInMember);
         } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
@@ -78,6 +85,7 @@ public class MenuController {
             System.out.println("User wants to view the notifications");
             mv = new ModelAndView("notification");
             mv.addObject("notifications", NotificationBO.getNotifications());
+           
             mv.addObject("menu", new Menu());
         } else {
             mv = new ModelAndView("welcome");

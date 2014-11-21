@@ -50,7 +50,7 @@ public class MemberAdminController {
             message = "add a member";
             mv = new ModelAndView("memberBio");
             mv.addObject("informationMessage", message);
-            mv.addObject("memberSquash", new MemberRegistration());
+            mv.addObject("memberRegistration", new MemberRegistration());
         } else {
             //Get the memberBio
             MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));

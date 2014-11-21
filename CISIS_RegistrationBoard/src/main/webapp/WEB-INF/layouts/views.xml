@@ -9,9 +9,14 @@
     </definition>
         
     <definition name="education" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/member/education.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/education/member_education.jsp" />
     </definition>
-    
+
+    <definition name="educationAdd" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/education/member_education_add.jsp" />
+    </definition>
+
+            
     <definition name="employment" extends="DefaultTemplate">
         <put-attribute name="body"	value="/WEB-INF/views/member/employment.jsp" />
     </definition>
