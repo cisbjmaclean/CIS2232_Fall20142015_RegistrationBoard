@@ -31,7 +31,7 @@
 <body>
     <h2><fmt:message  key="label.member.education"/></h2>
     <div>
-        <form action="MemberEducationAdd" method="post">
+        <form action="memberEducationAdd" method="post">
             <spring:nestedPath path="memberEducation">
                 <table>                
                     <tr>
@@ -39,8 +39,8 @@
                             <label class="alignCenter"  for="programCode">
                                 <strong><fmt:message key="label.program" />:&nbsp;&nbsp;</strong></label>
 
-                            <c:forEach var="program" items="${sessionScope.programs}" varStatus="loopCounter">
-                                <form:radiobutton path="programCode" value="${program.codeValueSequence}" onclick="showDesignation(this.value);" />
+                            <c:forEach var="theProgram" items="${sessionScope.programs}" varStatus="loopCounter">
+                                <form:radiobutton path="programCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
                             </c:forEach>
                         </td>
                     </tr>
@@ -82,8 +82,7 @@
 
                     <tr>
                         <td colspan="2">
-                            <fmt:message key="label.core.indicator" var="coreIndicatorText" />
-                            <form:checkbox path="coreIndicator" value="${coreIndicatorText}"/>
+                            <form:checkbox path="coreIndicator" value="core" label="core"/>
 
                         </td>
                     </tr>

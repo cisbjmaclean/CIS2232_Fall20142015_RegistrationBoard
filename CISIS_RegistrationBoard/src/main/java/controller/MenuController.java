@@ -2,6 +2,7 @@ package controller;
 
 import beans.ChangePassword;
 import beans.CodeValue;
+import beans.MemberEducation;
 import beans.MemberRegistration;
 import beans.Notification;
 import business.MemberBO;
@@ -38,9 +39,16 @@ public class MenuController {
         } else if (menu.getAction().equalsIgnoreCase("Education")) {
             System.out.println("Call to Education JSP");
             mv = new ModelAndView("education");
-            MemberEducationBO.setupEducation(request, loggedInMember.getMemberId());
+            MemberEducationBO.setupEducation(request, loggedInMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Education");
+
+                } else if (menu.getAction().equalsIgnoreCase("Add Education")) {
+            System.out.println("Call to Add Education JSP");
+            mv = new ModelAndView("educationAdd");
+            mv.addObject("memberEducation", new MemberEducation());
+            mv.addObject("informationMessage", "Education");
+
         } else if (menu.getAction().equalsIgnoreCase("Employment")) {
             System.out.println("Call to Employment JSP");
             mv = new ModelAndView("employment");

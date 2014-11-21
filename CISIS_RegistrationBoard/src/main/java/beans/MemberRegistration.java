@@ -21,7 +21,6 @@ import org.apache.commons.beanutils.BeanUtils;
 public class MemberRegistration {
 
     private Member member;
-    private int memberId;
     private int salutationCode;
     private String previousSurnames = "";
     private boolean emailToMembers = false;
@@ -55,17 +54,7 @@ public class MemberRegistration {
         this.website = website;
     }
 
-    
-    
-    public int getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
-
-    public int getSalutationCode() {
+        public int getSalutationCode() {
         return salutationCode;
     }
 

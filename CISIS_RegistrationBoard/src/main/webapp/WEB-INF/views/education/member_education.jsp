@@ -95,7 +95,7 @@
                     <tr align="center">
                         <td colspan="2">
 
-                            <input type="submit" value=<fmt:message key="label.add.education"/>/>
+                            <input type="submit" name="action" value='<fmt:message key="label.add.education"/>'/>
                         </td>
                     </tr>
                 </table>
