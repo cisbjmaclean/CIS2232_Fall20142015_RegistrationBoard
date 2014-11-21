@@ -1,8 +1,8 @@
 package controller;
 
-import beans.MemberRegistrationBoard;
+import beans.MemberRegistration;
 import business.AccessBO;
-import business.MemberRegistrationBoardBO;
+import business.MemberRegistrationBO;
 import database.CodeValueDAO;
 import forms.Login;
 import java.util.logging.Level;
@@ -40,10 +40,10 @@ public class LoginController {
         if (validCredentials) {
             CodeValueDAO.loadCodes(request);
             mv = new ModelAndView("memberBio");
-            MemberRegistrationBoard ms = new MemberRegistrationBoard();
+//            MemberRegistrationBoard ms = new MemberRegistrationBoard();
             System.out.println("getting member for " + login.getUsername());
             request.getSession().setAttribute("loggedInUserId", login.getUsername());
-            MemberRegistrationBoard theMember = MemberRegistrationBoardBO.getMemberByUserid(login.getUsername());
+            MemberRegistration theMember = MemberRegistrationBO.getMemberByUserid(login.getUsername());
             theMember.getMember().setPassword(login.getPassword());
             request.getSession().setAttribute("loggedInMember", theMember);
             mv.addObject("memberRegistration", theMember);

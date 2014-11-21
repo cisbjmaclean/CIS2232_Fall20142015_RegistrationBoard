@@ -1,9 +1,10 @@
 package controller;
 
 import beans.Member;
-import beans.MemberRegistrationBoard;
+import beans.MemberRegistration;
+import beans.MemberSquash;
 import business.MemberBO;
-import business.MemberRegistrationBoardBO;
+import business.MemberSquashBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -49,10 +50,10 @@ public class MemberAdminController {
             message = "add a member";
             mv = new ModelAndView("memberBio");
             mv.addObject("informationMessage", message);
-            mv.addObject("memberSquash", new MemberRegistrationBoard());
+            mv.addObject("memberSquash", new MemberRegistration());
         } else {
             //Get the memberBio
-            MemberRegistrationBoard memberSquash = MemberRegistrationBoardBO.getMember(request.getParameter("memberId"));
+            MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
             mv = new ModelAndView("memberBio");
             mv.addObject("memberSquash", memberSquash);
             if (request.getParameter("memberId").equals((String) request.getSession().getAttribute("loggedInUserId"))) {

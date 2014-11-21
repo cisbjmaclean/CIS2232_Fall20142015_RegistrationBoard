@@ -1,9 +1,8 @@
 package database;
 
 import beans.Member;
-import beans.MemberRegistrationBoard;
+import beans.MemberRegistration;
 import business.MemberBO;
-import exceptions.PasswordException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,55 +16,89 @@ import util.DbUtils;
  */
 public class MemberRegistrationDAO {
 
-    public static void addMemberRegistration(MemberRegistrationBoard memberBoard) throws Exception {
+//    public static void addMemberRegistration(MemberRegistration memberBoard) throws Exception {
+//
+//        System.out.println("inserting a new member");
+//        PreparedStatement ps = null;
+//        String sql = null;
+//        Connection conn = null;
+//        conn = ConnectionUtils.getConnection();
+//        try {
+//            MemberBO.addMember(memberBoard.getMember());
+//
+//            sql = "INSERT INTO `member_bio_registration`(member_id`, `salutation_code`, `previous_surnames`, `email_to_members`, "
+//                    + "`email_to_business`, `email_to_government`, `email_to_peida_executive`, `website_address`, `bilingual_e_f_ind`, "
+//                    + "`bilingual_other`, `canadian_citizen_ind`, `landed_immigrant_ind`, `country_of_origin_code`, `immigrant_authorized_ind`, "
+//                    + "`immigrant_authorized_expiry_date`) "
+//                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//
+//            ps = conn.prepareStatement(sql);
+//
+//            //The new member id should be populated now since the object was passed 
+//            //by reference to the addMember method above.
+//            ps.setInt(1, memberBoard.getMember().getMemberId());
+//            ps.setString(1, member.getFirstName());
+//            ps.setString(2, member.getMiddleName());
+//            ps.setString(3, member.getLastName());
+//            ps.setInt(4, member.getSalutationCode());
+//            ps.setString(5, member.getPreviousSurnames());
+//            ps.setBoolean(6, member.isEmailToMembers());
+//            ps.setBoolean(7, member.isEmailToBusiness());
+//            ps.setBoolean(8, member.isEmailToGovernment());
+//            ps.setBoolean(9, member.isEmailToPEIDAExecutive());
+//            ps.setString(10, member.getAddressLine1());
+//            ps.setString(11, member.getAddressLine2());
+//            ps.setString(12, member.getMunicipality());
+//            ps.setInt(13, member.getProvinceCode());
+//            ps.setString(14, member.getPostalCode());
+//            ps.setString(15, member.getHomePhone());
+//            ps.setString(16, member.getWorkPhone());
+//            ps.setString(17, member.getWorkPhoneExtension());
+//            ps.setString(18, member.getFax());
+//            ps.setString(19, member.getEmailAddress());
+//            ps.setString(20, member.getWebsite());
+//            ps.setString(21, member.getDateOfBirth());
+//            ps.setInt(22, member.getGenderCode());
+//            ps.setBoolean(23, member.isBilingual());
+//            ps.setString(24, member.getBilingualOther());
+//            ps.setBoolean(25, member.isCanadianCitizen());
+//            ps.setBoolean(26, member.isLandedImmigrant());
+//            ps.setInt(27, member.getCountryOfOriginCode());
+//            ps.setBoolean(28, member.isImmigrantAuthorized());
+//            ps.setString(29, member.getImmigrantAuthorizedExpiryDate());
+//            ps.setInt(30, member.getMemberId());
+//
+//            
+//            
+//            
+//         //   ps.setInt(2, memberBoard.getDivisionCode());
+//         //   ps.setInt(3, memberBoard.getLevelCode());
+//         //   ps.setInt(4, memberBoard.getClubCode());
+//         //   ps.setString(5, memberBoard.getRegistrationDate());
+//         //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
+//         //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
+//         //   ps.setInt(8, 0);
+//         //   ps.executeUpdate();
+//
+//        } catch (Exception e) {
+//            String errorMessage = e.getMessage();
+//            e.printStackTrace();
+//            throw e;
+//        } finally {
+//            DbUtils.close(ps, conn);
+//        }
+//        return;
+//    }
 
-        System.out.println("inserting a new member");
+    public static ArrayList<MemberRegistration> getAllActiveMembers() {
+
         PreparedStatement ps = null;
         String sql = null;
         Connection conn = null;
-        conn = ConnectionUtils.getConnection();
-        try {
-            MemberBO.addMember(memberBoard.getMember());
-
-            sql = "INSERT INTO `member_bio_registration`(member_id`, `salutation_code`, `previous_surnames`, `email_to_members`, "
-                    + "`email_to_business`, `email_to_government`, `email_to_peida_executive`, `website_address`, `bilingual_e_f_ind`, "
-                    + "`bilingual_other`, `canadian_citizen_ind`, `landed_immigrant_ind`, `country_of_origin_code`, `immigrant_authorized_ind`, "
-                    + "`immigrant_authorized_expiry_date`) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-            ps = conn.prepareStatement(sql);
-
-            //The new member id should be populated now since the object was passed 
-            //by reference to the addMember method above.
-            ps.setInt(1, memberBoard.getMember().getMemberId());
-         //   ps.setInt(2, memberBoard.getDivisionCode());
-         //   ps.setInt(3, memberBoard.getLevelCode());
-         //   ps.setInt(4, memberBoard.getClubCode());
-         //   ps.setString(5, memberBoard.getRegistrationDate());
-         //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
-         //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
-         //   ps.setInt(8, 0);
-         //   ps.executeUpdate();
-
-        } catch (Exception e) {
-            String errorMessage = e.getMessage();
-            e.printStackTrace();
-            throw e;
-        } finally {
-            DbUtils.close(ps, conn);
-        }
-        return;
-    }
-
-    public static ArrayList<MemberRegistrationBoard> getAllActiveMembers() {
-
-        PreparedStatement ps = null;
-        String sql = null;
-        Connection conn = null;
-        ArrayList<MemberRegistrationBoard> membersRestration = new ArrayList();
+        ArrayList<MemberRegistration> membersRestration = new ArrayList();
         ArrayList<Member> members = MemberDAO.getAllActiveMembers();
         for (Member nextMember : members) {
-            MemberRegistrationBoard memberBoard = new MemberRegistrationBoard();
+            MemberRegistration memberBoard = new MemberRegistration();
             memberBoard.setMember(nextMember);
             getMemberRestrationComponents(memberBoard);
             membersRestration.add(memberBoard);
@@ -74,14 +107,14 @@ public class MemberRegistrationDAO {
         return membersRestration;
     }
 
-    public static MemberRegistrationBoard getMemberRestrationByUserid(String userId) {
-        MemberRegistrationBoard memberBoard = new MemberRegistrationBoard();
+    public static MemberRegistration getMemberRestrationByUserid(String userId) {
+        MemberRegistration memberBoard = new MemberRegistration();
         memberBoard.setMember(MemberDAO.getMemberByUserid(userId));
         getMemberRestrationComponents(memberBoard);
         return memberBoard;
     }
 
-    public static MemberRegistrationBoard getMemberRestrationComponents(MemberRegistrationBoard memberBoard) {
+    public static MemberRegistration getMemberRestrationComponents(MemberRegistration memberBoard) {
 
         String sql = "SELECT * FROM member_bio_registration WHERE member_id = " + memberBoard.getMember().getMemberId();
         PreparedStatement ps = null;
@@ -94,13 +127,22 @@ public class MemberRegistrationDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-         //       memberBoard.setDivisionCode(rs.getInt("division_code"));
-         //       memberBoard.setLevelCode(rs.getInt("level_code"));
-         //       memberBoard.setClubCode(rs.getInt("club_code"));
-         //       memberBoard.setRegistrationDate(rs.getString("registration_date"));
-         //       memberBoard.setAllowInformationOnWebsite(rs.getBoolean("permission_add_to_player_list"));
-         //       memberBoard.setAllowPhotoUse(rs.getBoolean("permission_use_photo"));
-         //       memberBoard.setPaymentStatusCode(rs.getInt("payment_status"));
+                memberBoard.setSalutationCode(rs.getInt("salutation_code"));
+                memberBoard.setPreviousSurnames(rs.getString("previous_surnames"));
+                memberBoard.setEmailToMembers(rs.getBoolean("email_to_members"));
+                memberBoard.setEmailToBusiness(rs.getBoolean("email_to_business"));
+                memberBoard.setEmailToGovernment(rs.getBoolean("email_to_government"));
+                memberBoard.setEmailToPEIDAExecutive(rs.getBoolean("email_to_peida_executive"));
+                memberBoard.setWebsite(rs.getString("website_address"));
+                memberBoard.setBilingual(rs.getBoolean("bilingual_e_f_ind"));
+                memberBoard.setBilingualOther(rs.getString("bilingual_other"));
+                memberBoard.setCanadianCitizen(rs.getBoolean("canadian_citizen_ind"));
+                memberBoard.setLandedImmigrant(rs.getBoolean("landed_immigrant_ind"));
+                memberBoard.setCountryOfOriginCode(rs.getInt("country_of_origin_code"));
+                memberBoard.setImmigrantAuthorized(rs.getBoolean("immigrant_authorized_ind"));
+                memberBoard.setImmigrantAuthorizedExpiryDate(rs.getString("immigrant_authorized_expiry_date"));
+
+            
             }
         } catch (Exception e) {
             String errorMessage = e.getMessage();
@@ -112,8 +154,8 @@ public class MemberRegistrationDAO {
         return memberBoard;
     }
 
-    public static MemberRegistrationBoard getMemberRestration(String memberId) {
-        MemberRegistrationBoard memberBoard = new MemberRegistrationBoard();
+    public static MemberRegistration getMemberRestration(String memberId) {
+        MemberRegistration memberBoard = new MemberRegistration();
         memberBoard.setMember(MemberDAO.getMember(memberId));
         getMemberRestrationComponents(memberBoard);
         return memberBoard;
@@ -126,7 +168,7 @@ public class MemberRegistrationDAO {
      * @author BJ
      * @since 20131202
      */
-    public static void updateMember(MemberRegistrationBoard member) throws Exception {
+    public static void updateMember(MemberRegistration member) throws Exception {
         //Have to update the member based on member id.
 
         MemberDAO.updateMember(member.getMember());
