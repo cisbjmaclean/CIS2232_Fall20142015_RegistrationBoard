@@ -4,51 +4,51 @@
     <spring:nestedPath path="menu">
         <table>                     
             <tr>
-                <td>        <input type="submit" name="action" value="My Information">
+                <td><input type="submit" name="action" value="My Information">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Education">
-                </td>
-            </tr>
-                        <tr>
-                <td>        <input type="submit" name="action" value="Employment">
+                <td><input type="submit" name="action" value="Education">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Professional Development">
+                <td><input type="submit" name="action" value="Employment">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Make Payment">
+                <td><input type="submit" name="action" value="Professional Development">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Change Password">
+                <td><input type="submit" name="action" value="Make Payment">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Logout">
+                <td><input type="submit" name="action" value="Change Password">
                 </td>
             </tr>
             <tr>
-                <td><fmt:message key="label.admin" />
+                <td><input type="submit" name="action" value="Logout">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Members">
+                <td><fmt:message key="label.admin"/>
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Reports">
+                <td><input type="submit" name="action" value="Members">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Notifications">
+                <td><input type="submit" name="action" value="Reports">
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="View Codes">
+                <td><input type="submit" name="action" value="Notifications">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="action" value="View Codes">
                 </td>
             </tr>
             <tr>

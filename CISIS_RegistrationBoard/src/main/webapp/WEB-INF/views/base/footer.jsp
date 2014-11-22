@@ -2,7 +2,7 @@
 <%@page pageEncoding="UTF-8"%>
 <html>
     <body>
-        <div >
+        <div>
             <h3>
                 Holland College CIS 2014/2015<br/>
             </h3>

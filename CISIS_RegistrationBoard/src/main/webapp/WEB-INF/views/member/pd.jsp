@@ -36,7 +36,7 @@
             ${informationMessage}
             ${errorMessage}
             <hr/>
-            
+
             <tr>
                 <td>
                     <hr/>

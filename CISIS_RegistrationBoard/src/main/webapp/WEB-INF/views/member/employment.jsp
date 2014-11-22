@@ -8,7 +8,6 @@
 
 
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><fmt:message key="welcome.title"/></title>
 
@@ -32,18 +31,16 @@
 <form action="menu"  id="TheForm" method="post">
     <spring:nestedPath path="menu">
         <table>                     
-            <h2><fmt:message key="label.employee"/></h2>
+            <h2><fmt:message key="label.employment"/></h2>
             ${informationMessage}
             ${errorMessage}
             <hr/>
-            
+
             <tr>
                 <td>
                     <hr/>
                 </td>
-            </tr>
-
-
+            </tr
 
             <tr>
                 <td>        <input type="submit" id="TheButton" name="action" value="Add Notification">

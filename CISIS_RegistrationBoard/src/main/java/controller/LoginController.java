@@ -39,7 +39,8 @@ public class LoginController {
         }
         if (validCredentials) {
             CodeValueDAO.loadCodes(request);
-            mv = new ModelAndView("memberBio");
+            mv = new ModelAndView("summary");
+//            mv = new ModelAndView("memberBio");
 //            MemberRegistrationBoard ms = new MemberRegistrationBoard();
             System.out.println("getting member for " + login.getUsername());
             request.getSession().setAttribute("loggedInUserId", login.getUsername());

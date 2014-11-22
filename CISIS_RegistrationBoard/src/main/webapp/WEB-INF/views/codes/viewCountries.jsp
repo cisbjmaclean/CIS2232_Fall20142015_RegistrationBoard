@@ -15,10 +15,6 @@
                     <td><c:out value="${country.description}" /></td>
                 </tr>
             </c:forEach>
-
-
-
-
         </table>
     </form>
 </spring:nestedPath>

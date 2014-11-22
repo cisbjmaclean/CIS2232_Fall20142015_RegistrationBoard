@@ -7,6 +7,10 @@
     <definition name="welcome" extends="DefaultTemplateNoMenu">
         <put-attribute name="body"	value="/WEB-INF/views/base/welcome.jsp" />
     </definition>
+    
+    <definition name="summary" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/base/summary_screen.jsp" />
+    </definition>
         
     <definition name="education" extends="DefaultTemplate">
         <put-attribute name="body"	value="/WEB-INF/views/education/member_education.jsp" />
@@ -15,7 +19,6 @@
     <definition name="educationAdd" extends="DefaultTemplate">
         <put-attribute name="body"	value="/WEB-INF/views/education/member_education_add.jsp" />
     </definition>
-
             
     <definition name="employment" extends="DefaultTemplate">
         <put-attribute name="body"	value="/WEB-INF/views/member/employment.jsp" />

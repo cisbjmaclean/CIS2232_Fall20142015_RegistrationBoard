@@ -25,7 +25,6 @@
         }
     </script> 
 
-
 </head>
 
 <body>
@@ -97,7 +96,6 @@
             </spring:nestedPath>
         </form>
     </div>
-
 
 </body>
 

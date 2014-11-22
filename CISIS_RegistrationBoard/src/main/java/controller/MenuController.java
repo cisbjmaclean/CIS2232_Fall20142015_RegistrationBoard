@@ -29,7 +29,6 @@ public class MenuController {
     public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu, HttpServletRequest request) {
         //pass validation if they enter "TEST" and "TEST"
         
-        
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         
         System.out.println("Menu post invoked");
@@ -42,7 +41,6 @@ public class MenuController {
             MemberEducationBO.setupEducation(request, currentMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Education");
-
         } else if (menu.getAction().equalsIgnoreCase("Add Education")) {
             System.out.println("Call to Add Education JSP");
             mv = new ModelAndView("educationAdd");
@@ -51,7 +49,6 @@ public class MenuController {
             System.out.println("Heading to add education for member="+currentMember.getMember().getMemberId());
             mv.addObject("memberEducation", me);
             mv.addObject("informationMessage", "Education");
-
         } else if (menu.getAction().equalsIgnoreCase("Employment")) {
             System.out.println("Call to Employment JSP");
             mv = new ModelAndView("employment");
@@ -98,7 +95,6 @@ public class MenuController {
             System.out.println("User wants to view the notifications");
             mv = new ModelAndView("notification");
             mv.addObject("notifications", NotificationBO.getNotifications());
-           
             mv.addObject("menu", new Menu());
         } else {
             mv = new ModelAndView("welcome");

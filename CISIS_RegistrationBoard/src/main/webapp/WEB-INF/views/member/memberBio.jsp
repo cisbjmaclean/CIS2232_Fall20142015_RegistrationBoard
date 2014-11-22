@@ -9,22 +9,7 @@
 <form action="memberBioUpdate" method="post">
     <spring:nestedPath path="memberRegistration">
 
-        <table> 
-            
-<!--           <tr><td><h3>Membership Includes:</h3></td></tr>
-            <tr><td>✓ Inclusion in the Squash PEI email news distribution list</td></tr>
-            <tr><td>✓ Reduced registration fees to Squash PEI sanctioned tournaments and clinics</td></tr>
-            <tr><td>✓ Provincial rankings for female/male players, maintained by Squash PEI </td></tr>
-            <tr><td>✓ Discounts with local and regional businesses which have partnered with Squash PEI</td></tr>
-            <tr><td>✓ Liability and injury insurance that covers accidents during practice, competition and travel to events (this alone is worth your membership fee!)</td></tr>
-            <tr><td><hr/></td></tr>
-            <tr><td><h3>Registration Procedure</h3></td></tr>
-            <tr><td>✓ Complete the form, attach payment; and submit to Kady Bruce or Ken Sampson. Cheques can be made payable to “Squash PEI. (if mailing; please send to Ken Sampson, Box 131, North Rustico, PE, C0A 1X0”.</td></tr>
-            <tr><td>✓ Age, club affiliation and member information are for use by Sport PEI for Injury and Liability Insurance purposes. Contact information is required for Squash PEI communications.</td></tr>
-            <tr><td>✓ Signature of Player required(Parent/Guardian if player is Under 18)</td></tr>
-            <tr><td>✓ Membership: $ 30 All Divisions (Maximum of $100.00 per immediate family)</td></tr>
-            <tr><td><hr/></td></tr>
-           -->
+        <table>
             <tr>
                 <td>
                     <h3><fmt:message key="label.information" /></h3>
@@ -33,12 +18,12 @@
 
             <tr>
                 <td><form:hidden path="member.memberId"/>
-            <label class="alignCenter" for="firstName">
-                <strong><fmt:message key="label.first.name" /></strong></label>
-                <form:input path="member.firstName" size="20" />
-            </td>
+                    <label class="alignCenter" for="firstName">
+                        <strong><fmt:message key="label.first.name" /></strong></label>
+                        <form:input path="member.firstName" size="20" />
+                </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <label class="alignCenter" for="middleName">
@@ -53,11 +38,11 @@
                         <form:input path="member.lastName" size="20" />
                 </td>
             </tr>
-                <td>
-                    <label class="alignCenter"  for="addressLine1">
-                        <strong><fmt:message key="label.address.line.1" /></strong></label>
-                        <form:input path="member.addressLine1" size="50" />
-                </td>
+            <td>
+                <label class="alignCenter"  for="addressLine1">
+                    <strong><fmt:message key="label.address.line.1" /></strong></label>
+                    <form:input path="member.addressLine1" size="50" />
+            </td>
             </tr>
             <tr>
                 <td>
