@@ -15,10 +15,10 @@
     <title><fmt:message key="welcome.title"/></title>
 <html:base/>
 <script type="text/javascript">
-    function deleteEducation(test, educationDescription) {
+    function deleteEducation(test, educationDescription, memberIdIn) {
         var r = confirm("<fmt:message key="label.confirm.delete.education"/>" + educationDescription + "?");
         if (r == true) {
-            document.forms[1].action = "/RegistrationBoard/MemberEducation.do?delete=" + test;
+            document.forms[1].action = "/CISIS_RegistrationBoard/memberEducation?action=delete&memberId=" + memberIdIn+ "&educationId="+ test;
             document.forms[1].submit();
         }
 
@@ -80,7 +80,7 @@
                         <tr align="center">
                             <td colspan="2">
                                 <input type="button" 
-                                       onclick="deleteEducation(<c:out value="${thisEducation.memberEducationSequence}"/>, '<c:out value="${thisEducation.programDescription}" />')" value='<fmt:message key="label.delete"/>'>
+                                       onclick="deleteEducation(<c:out value="${thisEducation.memberEducationSequence}"/>, '<c:out value="${thisEducation.programDescription}" />', <c:out value="${thisEducation.memberId}"/>)" value='<fmt:message key="label.delete"/>'>
                             </td>
                         </tr>
                         <tr>

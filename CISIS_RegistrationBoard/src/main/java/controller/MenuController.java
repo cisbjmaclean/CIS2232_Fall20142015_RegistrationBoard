@@ -30,7 +30,7 @@ public class MenuController {
         //pass validation if they enter "TEST" and "TEST"
         
         
-        MemberRegistration loggedInMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
+        MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         
         System.out.println("Menu post invoked");
         ModelAndView mv;
@@ -39,14 +39,17 @@ public class MenuController {
         } else if (menu.getAction().equalsIgnoreCase("Education")) {
             System.out.println("Call to Education JSP");
             mv = new ModelAndView("education");
-            MemberEducationBO.setupEducation(request, loggedInMember.getMember().getMemberId());
+            MemberEducationBO.setupEducation(request, currentMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Education");
 
-                } else if (menu.getAction().equalsIgnoreCase("Add Education")) {
+        } else if (menu.getAction().equalsIgnoreCase("Add Education")) {
             System.out.println("Call to Add Education JSP");
             mv = new ModelAndView("educationAdd");
-            mv.addObject("memberEducation", new MemberEducation());
+            MemberEducation me = new MemberEducation();
+            me.setMemberId(currentMember.getMember().getMemberId());
+            System.out.println("Heading to add education for member="+currentMember.getMember().getMemberId());
+            mv.addObject("memberEducation", me);
             mv.addObject("informationMessage", "Education");
 
         } else if (menu.getAction().equalsIgnoreCase("Employment")) {
@@ -66,10 +69,12 @@ public class MenuController {
             mv = new ModelAndView("main");
             mv.addObject("informationMessage", "Reports to be determined");
         } else if (menu.getAction().equalsIgnoreCase("My Information")) {
+            currentMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
+            request.getSession().setAttribute("currentMember", currentMember);
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My information");
-            mv.addObject("memberRegistration", loggedInMember);
+            mv.addObject("memberRegistration", currentMember);
         } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");

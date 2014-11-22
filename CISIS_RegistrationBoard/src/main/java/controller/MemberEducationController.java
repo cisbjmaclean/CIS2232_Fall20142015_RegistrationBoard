@@ -27,20 +27,23 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberEducationController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView onSubmit(HttpServletRequest request) {
+    public ModelAndView onGet(HttpServletRequest request) {
 
         //check the parameters.
         String actionSpecified = request.getParameter("action");
         System.out.println("Action specified=" + actionSpecified);
-        System.out.println("Member id=" + request.getParameter("memberId"));
+        String memberId = request.getParameter("memberId");
+        System.out.println("member to delete=" + memberId);
+
         // Member theMember = MemberBO.getMember(request.getParameter("memberId"));
         Member aMember = new Member();
         String message = "";
-        ModelAndView mv;
+        ModelAndView mv = new ModelAndView("welcome");
         if (actionSpecified != null && actionSpecified.equalsIgnoreCase("delete")) {
             try {
+                String educationId = request.getParameter("educationId");
                 aMember = MemberBO.getMember(request.getParameter("memberId"));
-                MemberBO.deleteMember(aMember, (String) request.getSession().getAttribute("loggedInUserId"));
+                MemberEducationBO.deleteMemberEducation(aMember.getMemberId(), Integer.parseInt(educationId));
             } catch (Exception ex) {
                 Logger.getLogger(MemberEducationController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error deleting the member.");
@@ -50,20 +53,21 @@ public class MemberEducationController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllActiveMembers());
 
-        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("add")) {
-            message = "add a member";
-            mv = new ModelAndView("memberBio");
-            mv.addObject("informationMessage", message);
-            mv.addObject("memberRegistration", new MemberRegistration());
-        } else {
-            //Get the memberBio
-            MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
-            mv = new ModelAndView("memberBio");
-            mv.addObject("memberSquash", memberSquash);
-            if (request.getParameter("memberId").equals((String) request.getSession().getAttribute("loggedInUserId"))) {
-                request.getSession().setAttribute("loggedInMember", memberSquash);
-            }
         }
+//            else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("add")) {
+//            message = "add a member";
+//            mv = new ModelAndView("memberBio");
+//            mv.addObject("informationMessage", message);
+//            mv.addObject("memberRegistration", new MemberRegistration());
+//        } else {
+//            //Get the memberBio
+//            MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
+//            mv = new ModelAndView("memberBio");
+//            mv.addObject("memberSquash", memberSquash);
+//            if (request.getParameter("memberId").equals((String) request.getSession().getAttribute("loggedInUserId"))) {
+//                request.getSession().setAttribute("loggedInMember", memberSquash);
+//            }
+//        }
         return mv;
     }
 
@@ -83,19 +87,50 @@ public class MemberEducationController {
 //            }
 //        } else {
 
-        try {
-            MemberEducationBO.insertMemberEducation(memberEducation);
-            informationMessage = "Education added";
-        } catch (Exception ex) {
-            errorMessage = "Error adding education";
-            System.out.println("Error inserting education");
+        //check the parameters.
+        String actionSpecified = request.getParameter("action");
+        System.out.println("Action specified=" + actionSpecified);
+        String memberId = request.getParameter("memberId");
+        System.out.println("member to delete=" + memberId);
+
+        // Member theMember = MemberBO.getMember(request.getParameter("memberId"));
+        Member aMember = new Member();
+        String message = "";
+        ModelAndView mv = new ModelAndView("welcome");
+        if (actionSpecified != null && actionSpecified.equalsIgnoreCase("delete")) {
+            try {
+                String educationId = request.getParameter("educationId");
+                aMember = MemberBO.getMember(request.getParameter("memberId"));
+                MemberEducationBO.deleteMemberEducation(aMember.getMemberId(), Integer.parseInt(educationId));
+            } catch (Exception ex) {
+                Logger.getLogger(MemberEducationController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+            message = "member was deleted";
+            mv = new ModelAndView("education");
+            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
+            MemberEducationBO.setupEducation(request, currentMember.getMember().getMemberId());
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllActiveMembers());
+
+        } else {
+
+            try {
+                String loggedInUserId = (String) request.getSession().getAttribute("loggedInUserId");
+                memberEducation.setUserId(loggedInUserId);
+                MemberEducationBO.insertMemberEducation(memberEducation);
+                informationMessage = "Education added";
+            } catch (Exception ex) {
+                errorMessage = "Error adding education";
+                System.out.println("Error inserting education");
+            }
+
+            mv = new ModelAndView("education");
+            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
+            MemberEducationBO.setupEducation(request, currentMember.getMember().getMemberId());
+            mv.addObject("menu", new Menu());
+            mv.addObject("informationMessage", "Education");
         }
-        ModelAndView mv;
-        mv = new ModelAndView("education");
-        MemberRegistration loggedInMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
-        MemberEducationBO.setupEducation(request, loggedInMember.getMember().getMemberId());
-        mv.addObject("menu", new Menu());
-        mv.addObject("informationMessage", "Education");
         return mv;
     }
 

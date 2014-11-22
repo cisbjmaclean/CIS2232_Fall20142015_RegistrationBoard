@@ -31,11 +31,11 @@
 <body>
     <h2><fmt:message  key="label.member.education"/></h2>
     <div>
-        <form action="memberEducationAdd" method="post">
+        <form action="memberEducation" method="post">
             <spring:nestedPath path="memberEducation">
                 <table>                
                     <tr>
-                        <td>
+                        <td><form:hidden path="memberId"/>
                             <label class="alignCenter"  for="programCode">
                                 <strong><fmt:message key="label.program" />:&nbsp;&nbsp;</strong></label>
 
