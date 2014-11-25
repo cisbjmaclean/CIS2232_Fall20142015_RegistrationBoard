@@ -21,11 +21,27 @@
     </definition>
             
     <definition name="employment" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/member/employment.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/employment/member_employment.jsp" />
+    </definition>
+    
+    <definition name="addEmployment" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/employment/member_employment_add.jsp" />
     </definition>
 
     <definition name="pd" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/member/pd.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/PD/professional_development.jsp" />
+    </definition>
+    
+    <definition name="pdHours" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pdHours.jsp" />
+    </definition>
+    
+    <definition name="pdConfirm" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pdConfirm.jsp" />
+    </definition>
+    
+    <definition name="pdSuccess" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pd_event_success.jsp" />
     </definition>
     
     <definition name="main" extends="DefaultTemplateNoMenu">

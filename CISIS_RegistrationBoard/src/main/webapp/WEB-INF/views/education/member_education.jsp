@@ -10,7 +10,6 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><fmt:message key="welcome.title"/></title>
-<html:base/>
 <script type="text/javascript">
     function deleteEducation(test, educationDescription, memberIdIn) {
         var r = confirm("<fmt:message key="label.confirm.delete.education"/>" + educationDescription + "?");
