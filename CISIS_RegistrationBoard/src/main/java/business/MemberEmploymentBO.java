@@ -57,7 +57,7 @@ public class MemberEmploymentBO {
         /* Want to check that the member has information for internship and 
          core education.  Check this and add messages for the user if applicable.
          */
-        request.setAttribute("memberEmployment",MemberEmploymentBO.getMemberEmployment(memberId));
+        //request.setAttribute("memberEmploymentForm",MemberEmploymentBO.getMemberEmployment(memberId));
         request.getSession().setAttribute("Employers", MemberEmploymentBO.getMemberEmployers(memberId));
 
     }

@@ -56,9 +56,9 @@ public class MenuController {
             mv.addObject("informationMessage", "Education");
         }
         else if (menu.getAction().equalsIgnoreCase("Employment")) {
-            System.out.println("Call to employment JSP");
+            System.out.println("Call to Employment JSP");
             mv = new ModelAndView("employment");
-            //MemberEmploymentBO.setupEmployers(request, currentMember.getMember().getMemberId());
+            MemberEmploymentBO.setupEmployers(request, currentMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Employment");
         }
