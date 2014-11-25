@@ -17,6 +17,15 @@
             </tr>
 
             <tr>
+                <td><label class="alignCenter" for="salutationCode">
+                    <strong><fmt:message key="label.salutation" />:&nbsp;&nbsp;</strong></label>
+                    <c:forEach var="theProgram" items="${sessionScope.salutations}" varStatus="loopCounter">
+                        <form:radiobutton path="salutationCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
+                    </c:forEach>
+                </td>
+            </tr>
+            
+            <tr>
                 <td><form:hidden path="member.memberId"/>
                     <label class="alignCenter" for="firstName">
                         <strong><fmt:message key="label.first.name" /></strong></label>
@@ -31,6 +40,7 @@
                         <form:input path="member.middleName" size="20" />
                 </td>
             </tr>
+            
             <tr>
                 <td>
                     <label class="alignCenter"  for="lastName">
@@ -38,12 +48,38 @@
                         <form:input path="member.lastName" size="20" />
                 </td>
             </tr>
+            
+            <tr>
+                <td>
+                    <label class="alignCenter"  for="previousSurnames">
+                        <strong><fmt:message key="label.previous.surnames" /></strong></label>
+                        <form:input path="previousSurnames" size="50" />
+                </td>
+            </tr>
+            
+            <tr>
+                        <td colspan="2">
+                            <label class="alignCenter"  for="permission1">
+                                <strong><fmt:message key="label.email.permission" /></strong></label>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                            <form:checkbox path="emailToMembers" value="members" label="Members"/>
+                            <form:checkbox path="emailToBusiness" value="business" label="Business"/>
+                            <form:checkbox path="emailToGovernment" value="government" label="Government"/>
+                            <form:checkbox path="emailToPEIDAExecutive" value="PEIDA Executive" label="PEIDA Executive"/>
+                        </td>
+                    </tr>
+            
             <td>
                 <label class="alignCenter"  for="addressLine1">
                     <strong><fmt:message key="label.address.line.1" /></strong></label>
                     <form:input path="member.addressLine1" size="50" />
             </td>
             </tr>
+            
             <tr>
                 <td>
                     <label class="alignCenter"  for="addressLine2">
@@ -51,6 +87,7 @@
                         <form:input path="member.addressLine2" size="50" />
                 </td>
             </tr>
+            
             <tr>
                 <td>
                     <label class="alignCenter"  for="municipality">
@@ -106,6 +143,15 @@
                         <form:input path="member.emailAddress" size="25" />
                 </td>
             </tr>
+            
+            <tr>
+                        <td>
+                            <label class="alignCenter"  for="website">
+                                <strong><fmt:message key="label.website" /></strong></label>
+                                <form:input path="website" size="25" />
+                        </td>
+                    </tr>
+                    
             <tr>
                 <td>
                     <label class="alignCenter"  for="dateOfBirth">
@@ -124,6 +170,52 @@
                     </form:select>
                 </td>
             </tr>
+            
+                        <tr>
+                        <td colspan="1">
+                            <form:checkbox path="bilingual" value="bilingual" label="bilingual"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label class="alignCenter"  for="bilingualOther">
+                                <strong><fmt:message key="label.bilingual.other" /></strong></label>
+                                <form:input path="bilingualOther" size="50" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="1">
+                            <form:checkbox path="canadianCitizen" value="Canadian Citizen" label="Canadian Citizen"/>
+                            <form:checkbox path="landedImmigrant" value="Landed Immigrant" label="Landed Immigrant"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label class="alignCenter"  for="countryOfOriginCode">
+                                <strong><fmt:message key="label.country.of.origin" /></strong></label>
+                                
+                                <form:select path="countryOfOriginCode">
+                                    <form:options items="${sessionScope.countries}" itemLabel="description" itemValue="codeValueSequence"/>
+                                </form:select>                     
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="1">
+                            <form:checkbox path="immigrantAuthorized" value="Authorized under the Immigration Act to practice this professionn" label="Authorized under the Immigration Act to practice this profession"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label class="alignCenter"  for="immigrantAuthorizedExpiryDate">
+                                <strong><fmt:message key="label.immigrant.authorized.expiry" /></strong></label>
+                                <form:input path="immigrantAuthorizedExpiryDate" size="50" />
+                        </td>
+                    </tr>
 
             <tr align="center">
                 <td colspan="2">

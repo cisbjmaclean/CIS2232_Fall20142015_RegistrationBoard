@@ -16,79 +16,61 @@ import util.DbUtils;
  */
 public class MemberRegistrationDAO {
 
-//    public static void addMemberRegistration(MemberRegistration memberBoard) throws Exception {
-//
-//        System.out.println("inserting a new member");
-//        PreparedStatement ps = null;
-//        String sql = null;
-//        Connection conn = null;
-//        conn = ConnectionUtils.getConnection();
-//        try {
-//            MemberBO.addMember(memberBoard.getMember());
-//
-//            sql = "INSERT INTO `member_bio_registration`(member_id`, `salutation_code`, `previous_surnames`, `email_to_members`, "
-//                    + "`email_to_business`, `email_to_government`, `email_to_peida_executive`, `website_address`, `bilingual_e_f_ind`, "
-//                    + "`bilingual_other`, `canadian_citizen_ind`, `landed_immigrant_ind`, `country_of_origin_code`, `immigrant_authorized_ind`, "
-//                    + "`immigrant_authorized_expiry_date`) "
-//                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//
-//            ps = conn.prepareStatement(sql);
-//
-//            //The new member id should be populated now since the object was passed 
-//            //by reference to the addMember method above.
-//            ps.setInt(1, memberBoard.getMember().getMemberId());
-//            ps.setString(1, member.getFirstName());
-//            ps.setString(2, member.getMiddleName());
-//            ps.setString(3, member.getLastName());
-//            ps.setInt(4, member.getSalutationCode());
-//            ps.setString(5, member.getPreviousSurnames());
-//            ps.setBoolean(6, member.isEmailToMembers());
-//            ps.setBoolean(7, member.isEmailToBusiness());
-//            ps.setBoolean(8, member.isEmailToGovernment());
-//            ps.setBoolean(9, member.isEmailToPEIDAExecutive());
-//            ps.setString(10, member.getAddressLine1());
-//            ps.setString(11, member.getAddressLine2());
-//            ps.setString(12, member.getMunicipality());
-//            ps.setInt(13, member.getProvinceCode());
-//            ps.setString(14, member.getPostalCode());
-//            ps.setString(15, member.getHomePhone());
-//            ps.setString(16, member.getWorkPhone());
-//            ps.setString(17, member.getWorkPhoneExtension());
-//            ps.setString(18, member.getFax());
-//            ps.setString(19, member.getEmailAddress());
-//            ps.setString(20, member.getWebsite());
-//            ps.setString(21, member.getDateOfBirth());
-//            ps.setInt(22, member.getGenderCode());
-//            ps.setBoolean(23, member.isBilingual());
-//            ps.setString(24, member.getBilingualOther());
-//            ps.setBoolean(25, member.isCanadianCitizen());
-//            ps.setBoolean(26, member.isLandedImmigrant());
-//            ps.setInt(27, member.getCountryOfOriginCode());
-//            ps.setBoolean(28, member.isImmigrantAuthorized());
-//            ps.setString(29, member.getImmigrantAuthorizedExpiryDate());
-//            ps.setInt(30, member.getMemberId());
-//
-//            
-//            
-//            
-//         //   ps.setInt(2, memberBoard.getDivisionCode());
-//         //   ps.setInt(3, memberBoard.getLevelCode());
-//         //   ps.setInt(4, memberBoard.getClubCode());
-//         //   ps.setString(5, memberBoard.getRegistrationDate());
-//         //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
-//         //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
-//         //   ps.setInt(8, 0);
-//         //   ps.executeUpdate();
-//
-//        } catch (Exception e) {
-//            String errorMessage = e.getMessage();
-//            e.printStackTrace();
-//            throw e;
-//        } finally {
-//            DbUtils.close(ps, conn);
-//        }
-//        return;
-//    }
+    public static void addMemberRegistration(MemberRegistration memberBoard) throws Exception {
+
+        System.out.println("inserting a new member");
+        PreparedStatement ps = null;
+        String sql = null;
+        Connection conn = null;
+        conn = ConnectionUtils.getConnection();
+        try {
+            MemberBO.addMember(memberBoard.getMember());
+
+            sql = "INSERT INTO `member_bio_registration`(member_id`, `salutation_code`, `previous_surnames`, `email_to_members`, "
+                    + "`email_to_business`, `email_to_government`, `email_to_peida_executive`, `website_address`, `bilingual_e_f_ind`, "
+                    + "`bilingual_other`, `canadian_citizen_ind`, `landed_immigrant_ind`, `country_of_origin_code`, `immigrant_authorized_ind`, "
+                    + "`immigrant_authorized_expiry_date`) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            ps = conn.prepareStatement(sql);
+
+            //The new member id should be populated now since the object was passed 
+            //by reference to the addMember method above.
+            ps.setInt(1, memberBoard.getMember().getMemberId());
+            ps.setInt(2, memberBoard.getSalutationCode());
+            ps.setString(3, memberBoard.getPreviousSurnames());
+            ps.setBoolean(4, memberBoard.isEmailToMembers());
+            ps.setBoolean(5, memberBoard.isEmailToBusiness());
+            ps.setBoolean(6, memberBoard.isEmailToGovernment());
+            ps.setBoolean(7, memberBoard.isEmailToPEIDAExecutive());   
+            ps.setString(8, memberBoard.getWebsite()); 
+            ps.setBoolean(9, memberBoard.isBilingual());
+            ps.setString(10, memberBoard.getBilingualOther());
+            ps.setBoolean(11, memberBoard.isCanadianCitizen());
+            ps.setBoolean(12, memberBoard.isLandedImmigrant());
+            ps.setInt(13, memberBoard.getCountryOfOriginCode());
+            ps.setBoolean(14, memberBoard.isImmigrantAuthorized());
+            ps.setString(15, memberBoard.getImmigrantAuthorizedExpiryDate());
+            ps.executeUpdate();
+            
+         //   ps.setInt(2, memberBoard.getDivisionCode());
+         //   ps.setInt(3, memberBoard.getLevelCode());
+         //   ps.setInt(4, memberBoard.getClubCode());
+         //   ps.setString(5, memberBoard.getRegistrationDate());
+         //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
+         //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
+         //   ps.setInt(8, 0);
+         //   ps.executeUpdate();
+
+        } catch (Exception e) {
+            String errorMessage = e.getMessage();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            DbUtils.close(ps, conn);
+        }
+        return;
+    }
 
     public static ArrayList<MemberRegistration> getAllActiveMembers() {
 
@@ -184,11 +166,29 @@ public class MemberRegistrationDAO {
             conn = ConnectionUtils.getConnection();
 
             sql = "UPDATE member_bio_registration SET `salutation_code`=?,`previous_surnames`=?,"
-                    + "`email_to_members`=?,``email_to_business`=?,``email_to_government`=?,"
+                    + "`email_to_members`=?,`email_to_business`=?,`email_to_government`=?,"
                     + "`email_to_peida_executive`=?,`website_address`=?, `bilingual_e_f_ind`=?, "
                     + "`bilingual_other`=?, `canadian_citizen_ind`=?, `landed_immigrant_ind`=?,"
                     + "`country_of_origin_code`=?, `immigrant_authorized_ind`=?,`immigrant_authorized_expiry_date`=?"
                     + "WHERE member_id = ? ";
+            
+            psMember = conn.prepareStatement(sql);
+            psMember.setInt(1, member.getSalutationCode());
+            psMember.setString(2, member.getPreviousSurnames());
+            psMember.setBoolean(3, member.isEmailToMembers());
+            psMember.setBoolean(4, member.isEmailToBusiness());
+            psMember.setBoolean(5, member.isEmailToGovernment());
+            psMember.setBoolean(6, member.isEmailToPEIDAExecutive());   
+            psMember.setString(7, member.getWebsite()); 
+            psMember.setBoolean(8, member.isBilingual());
+            psMember.setString(9, member.getBilingualOther());
+            psMember.setBoolean(10, member.isCanadianCitizen());
+            psMember.setBoolean(11, member.isLandedImmigrant());
+            psMember.setInt(12, member.getCountryOfOriginCode());
+            psMember.setBoolean(13, member.isImmigrantAuthorized());
+            psMember.setString(14, member.getImmigrantAuthorizedExpiryDate());
+            psMember.setInt(15, member.getMember().getMemberId());
+            psMember.executeUpdate();
  
         //    psMember = conn.prepareStatement(sql);
         //    psMember.setInt(1, member.getDivisionCode());

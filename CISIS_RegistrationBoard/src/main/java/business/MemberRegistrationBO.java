@@ -26,13 +26,13 @@ public class MemberRegistrationBO {
         MemberRegistrationDAO.updateMember(member);
     }
     
-    public static void addMember(Member member){
+    public static void addMember(MemberRegistration member){
         
         try {
-            MemberDAO.addMember(member);
-            String emailDetails = " You have been added to the Registration PEI Application.  \r\n User name="+member.getNewUserId()+"\r\n Password=rboard"
+            MemberRegistrationDAO.addMemberRegistration(member);
+            String emailDetails = " You have been added to the Registration PEI Application.  \r\n User name="+member.getMember().getNewUserId()+"\r\n Password=rboard"
                     + "\r\n \r\n Access details and change password at:  http://bjmac.hccis.info:8080/RegistrationPEI";
-            Mail mail = new Mail(member.getEmailAddress(), "registrationpei@gmail.com", "Registration PEI new user", emailDetails);
+            Mail mail = new Mail(member.getMember().getEmailAddress(), "registrationpei@gmail.com", "Registration PEI new user", emailDetails);
             mail.sendMail();
 
         } catch (Exception ex) {
