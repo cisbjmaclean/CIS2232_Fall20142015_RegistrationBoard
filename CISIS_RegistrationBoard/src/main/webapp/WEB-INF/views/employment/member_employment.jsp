@@ -22,7 +22,7 @@
 </head>
 
 <form action="menu" method="post">
-    <spring:nestedPath path="menu">
+    <spring:nestedPath path="memberEmployment">
 
         <table>
             <tr>
@@ -37,7 +37,10 @@
                         <input type="hidden" id="action_id" property="action"/>
                         <label class="alignCenter" for="statusCode">
                             <strong><fmt:message key="label.employment.status" />:&nbsp;&nbsp;</strong></label>
-                        <!-- Radio buttons go here -->
+                            <c:forEach var="theProgram" items="${sessionScope.employment_statuses}" varStatus="loopCounter">
+                                <form:radiobutton path="statusCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
+                            </c:forEach>            
+   
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +48,9 @@
                         <label class="alignCenter" for="currencyCode">
                             <strong><fmt:message key="label.currency" />:&nbsp;&nbsp;</strong></label>
                             <fmt:message key="label.currency.description" />
-                        <!-- Radio buttons go here -->
+                            <c:forEach var="theProgram" items="${sessionScope.currencies}" varStatus="loopCounter">
+                                <form:radiobutton path="currencyCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
+                            </c:forEach>
                     </td>
                 </tr>
                 <tr>

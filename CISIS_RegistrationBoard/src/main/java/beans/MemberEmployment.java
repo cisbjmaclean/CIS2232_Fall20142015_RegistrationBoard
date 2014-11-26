@@ -8,7 +8,7 @@ public class MemberEmployment{
 
     private int memberId;
     private boolean primaryIndicator;
-    private String action;
+   //  private String action;
     private int statusCode;
     private int currencyCode;
     private boolean practiceViaTelephoneIndicator;
@@ -82,12 +82,12 @@ public class MemberEmployment{
         this.practiceJurisdictions = practiceJurisdictions;
     }
 
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
+//    public String getAction() {
+//        return action;
+//    }
+//
+//    public void setAction(String action) {
+//        this.action = action;
+//    }
 
 }
