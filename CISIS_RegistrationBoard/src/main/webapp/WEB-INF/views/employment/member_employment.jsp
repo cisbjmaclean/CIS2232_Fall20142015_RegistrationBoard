@@ -30,49 +30,46 @@
                     <h2><fmt:message key="label.member.employment"/></h2>
                 </td>
             </tr>
-
-            <c:forEach var="thisEmployment" items="${sessionScope.Employers}" varStatus="loopCounter">
-                <tr>
-                    <td>
-                        <input type="hidden" id="action_id" property="action"/>
-                        <label class="alignCenter" for="statusCode">
-                            <strong><fmt:message key="label.employment.status" />:&nbsp;&nbsp;</strong></label>
-                            <c:forEach var="theProgram" items="${sessionScope.employment_statuses}" varStatus="loopCounter">
-                                <form:radiobutton path="statusCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
-                            </c:forEach>            
-   
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="alignCenter" for="currencyCode">
-                            <strong><fmt:message key="label.currency" />:&nbsp;&nbsp;</strong></label>
-                            <fmt:message key="label.currency.description" />
-                            <c:forEach var="theProgram" items="${sessionScope.currencies}" varStatus="loopCounter">
-                                <form:radiobutton path="currencyCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
-                            </c:forEach>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <label class="alignCenter">
-                            <strong><fmt:message key="label.practice.in.other.jurisdications" /></strong></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <!-- Check boxes go here -->
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="alignCenter" for="practiceJurisdictions">
-                            <strong><fmt:message key="label.jurisdictions" /></strong></label>
-                        <!-- Text box goes here -->
-                    </td>
-                </tr>
-            </c:forEach>
-
+            <tr>
+                <td>
+                    <input type="hidden" id="action_id" property="action"/>
+                    <label class="alignCenter" for="statusCode">
+                        <strong><fmt:message key="label.employment.status" /></strong>:</label><br />
+                        <c:forEach var="theProgram" items="${sessionScope.employment_statuses}" varStatus="loopCounter">
+                            <form:radiobutton path="statusCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/><br />
+                    </c:forEach>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="alignCenter" for="currencyCode">
+                        <strong><fmt:message key="label.currency" />:&nbsp;&nbsp;</strong></label>
+                    <fmt:message key="label.currency.description" /><br />
+                    <c:forEach var="theProgram" items="${sessionScope.currencies}" varStatus="loopCounter">
+                        <form:radiobutton path="currencyCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/><br />
+                    </c:forEach>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="alignCenter">
+                        <strong><fmt:message key="label.practice.in.other.jurisdications" /></strong></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <form:checkbox path="practiceViaTelephoneIndicator" value="Via Telephone" label="Via Telephone"/>
+                    <form:checkbox path="practiceViaInternetIndicator" value="Via Internet" label="Via Internet"/>
+                    <form:checkbox path="practiceInPersonIndicator" value="In Person" label="In Person"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="alignCenter" for="practiceJurisdictions">
+                        <strong><fmt:message key="label.jurisdictions" /></strong></label>
+                        <form:input path="practiceJurisdictions" />
+                </td>
+            </tr>
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" name="action" value='<fmt:message key="label.save"/>'>
@@ -89,12 +86,12 @@
                         <strong><fmt:message key="label.employers" /></strong></label>
                 </td>
             </tr>
-            <tr/>
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" name="action" value='<fmt:message key="label.add.employer"/>'/>
                 </td>
             </tr>
         </table>
+
     </spring:nestedPath>
 </form>
