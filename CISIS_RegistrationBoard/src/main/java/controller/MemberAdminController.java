@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberAdminController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView onSubmit(HttpServletRequest request) {
+    public ModelAndView onSubmit(HttpServletRequest request) throws Exception {
 
         //check the parameters.
         String actionSpecified = request.getParameter("action");
@@ -51,7 +51,38 @@ public class MemberAdminController {
             mv = new ModelAndView("memberBio");
             mv.addObject("informationMessage", message);
             mv.addObject("memberRegistration", new MemberRegistration());
-        } else {
+        }
+        //report
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirmAll")) {
+            try {
+                MemberBO.confirmAllMembers();
+            } catch (Exception ex) {
+                Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+            
+            message = "All members is confirmed";
+            mv = new ModelAndView("reports");
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllInactiveMembers());
+        }
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirm")) {
+            try {
+                aMember = MemberBO.getMember(request.getParameter("memberId"));
+                MemberBO.confirmMembers(aMember);
+            } catch (Exception ex) {
+                Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+            
+            message = "confrim members";
+            mv = new ModelAndView("reports");
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllInactiveMembers());
+        } 
+        
+        
+        else {
             //Get the memberBio
             MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
             mv = new ModelAndView("memberBio");

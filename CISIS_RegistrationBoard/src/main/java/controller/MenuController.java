@@ -74,11 +74,14 @@ public class MenuController {
             mv = new ModelAndView("main");
             mv.addObject("informationMessage", "Payment functionaity to be completed");
         }
+        
+        //Report
         else if (menu.getAction().equalsIgnoreCase("Reports")) {
-            System.out.println("User wants to view reports");
-            mv = new ModelAndView("main");
-            mv.addObject("informationMessage", "Reports to be determined");
+           System.out.println("User wants to view the reports");
+            mv = new ModelAndView("reports");
+            mv.addObject("members", MemberBO.getAllInactiveMembers()); 
         }
+        
         else if (menu.getAction().equalsIgnoreCase("My Information")) {
             currentMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
             request.getSession().setAttribute("currentMember", currentMember);

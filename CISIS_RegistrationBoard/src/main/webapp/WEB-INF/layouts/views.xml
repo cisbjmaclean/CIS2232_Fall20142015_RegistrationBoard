@@ -44,6 +44,13 @@
         <put-attribute name="body"	value="/WEB-INF/views/PD/pd_event_success.jsp" />
     </definition>
     
+            
+    <!-- add for report -->
+    <definition name="reports" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/reports/reports.jsp" />
+    </definition>
+    
+    
     <definition name="main" extends="DefaultTemplateNoMenu">
         <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
     </definition>
