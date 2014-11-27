@@ -8,6 +8,7 @@
 
 <form action="memberBioUpdate" method="post">
     <spring:nestedPath path="memberRegistration">
+
         <table>
             <tr>
                 <td>
@@ -203,5 +204,6 @@
                 </td>
             </tr>
         </table>
+
     </spring:nestedPath>
 </form>
