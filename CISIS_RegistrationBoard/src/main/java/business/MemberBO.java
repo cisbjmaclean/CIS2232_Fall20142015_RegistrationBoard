@@ -2,8 +2,10 @@ package business;
 
 import beans.ChangePassword;
 import beans.Member;
+import beans.SummaryScreen;
 import database.MemberDAO;
 import database.ReportsDAO;
+import database.SummaryScreenDAO;
 import exceptions.PasswordException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -109,19 +111,26 @@ public class MemberBO {
 
         ReportsDAO.confirmMembers(member);
         return MemberDAO.getAllActiveMembers();
-    }   
-    
+    }
+
     public static void confirmAllMembers() throws Exception {
         //Any validation?
 
         ReportsDAO.confirmAllMembers();
     }
-    
+
     //for show inactive members
     public static ArrayList<Member> getAllInactiveMembers() {
-
         return ReportsDAO.getAllInactiveMembers();
+    }
 
+    /**
+     *
+     * @author Zachary Theriault
+     * @since 2014/11/27
+     */
+    public static ArrayList<SummaryScreen> getUserSummary(int memberId) {
+        return SummaryScreenDAO.getUserSummary(memberId);
     }
 
 }
