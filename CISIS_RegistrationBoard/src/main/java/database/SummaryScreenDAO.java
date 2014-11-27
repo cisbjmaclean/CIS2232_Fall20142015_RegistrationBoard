@@ -23,7 +23,7 @@ public class SummaryScreenDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM member INNER JOIN member_bio ON member.member_id = member_bio.member_id WHERE member_id = " + memberId;
+            sql = "SELECT * FROM member INNER JOIN member_bio ON member.member_id = member_bio.member_id WHERE member.member_id = " + memberId;
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

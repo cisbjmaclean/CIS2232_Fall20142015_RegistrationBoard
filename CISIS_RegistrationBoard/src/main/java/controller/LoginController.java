@@ -2,6 +2,7 @@ package controller;
 
 import beans.MemberRegistration;
 import business.AccessBO;
+import business.MemberBO;
 import business.MemberRegistrationBO;
 import database.CodeValueDAO;
 import forms.Login;
@@ -49,6 +50,7 @@ public class LoginController {
             request.getSession().setAttribute("loggedInMember", theMember);
             request.getSession().setAttribute("currentMember", theMember);
             mv.addObject("memberRegistration", theMember);
+            mv.addObject("summaryScreen", MemberBO.getUserSummary(theMember.getMember().getMemberId()));
         } else {
             mv = new ModelAndView("login");
         }
