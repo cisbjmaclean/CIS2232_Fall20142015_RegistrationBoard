@@ -10,10 +10,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><fmt:message key="welcome.title"/></title>
     <script type="text/javascript">
-        function deleteEducation(test, educationDescription, memberIdIn) {
-            var r = confirm("<fmt:message key="label.confirm.delete.education"/>" + educationDescription + "?");
+        function deleteEmployment(test, employmentDescription, memberIdIn) {
+            var r = confirm("<fmt:message key="label.confirm.delete"/>" + employmentDescription + "?");
             if (r == true) {
-                document.forms[1].action = "/CISIS_RegistrationBoard/memberEmployment?action=delete&memberId=" + memberIdIn + "&educationId=" + test;
+                document.forms[1].action = "/CISIS_RegistrationBoard/memberEmployment?action=delete&memberId=" + memberIdIn + "&employmentId=" + test;
                 document.forms[1].submit();
             }
 
@@ -86,6 +86,58 @@
                         <strong><fmt:message key="label.employers" /></strong></label>
                 </td>
             </tr>
+
+
+
+
+
+            <!--New code changing-->
+            
+
+            <c:forEach var="thisEmployer" items="${sessionScope.Employers}" varStatus="loopCounter">
+
+                 <tr>
+                    <td>
+                        <label class="alignCenter" for="name">
+                            <strong><fmt:message key="label.name" /></strong></label>
+                            <c:out value="${thisEmployer.name}" />
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <label class="alignCenter"  for="addressLine1">
+                            <strong><fmt:message key="label.address.line.1" /></strong></label>
+                            <c:out value="${thisEmployer.addressLine1}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="addressLine2">
+                            <strong><fmt:message key="label.address.line.2" /></strong></label>
+                            <c:out value="${thisEmployer.addressLine2}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="municipality">
+                            <strong><fmt:message key="label.municipality" /></strong></label>
+                            <c:out value="${thisEmployer.municipality}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="postalCode">
+                            <strong><fmt:message key="label.postal.code"  /></strong></label>
+                            <c:out value="${thisEmployer.postalCode}" />
+                    </td>
+                </tr>
+
+            </c:forEach>
+                
+                
+                
+                
+
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" name="action" value='<fmt:message key="label.add.employer"/>'/>

@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectionUtils {
 	
 	private static String USER_NAME_DB="root";
-	private static String USER_PASSWORD_DB="";
+	private static String USER_PASSWORD_DB="testing";
 	private static String DB_NAME="cisis_registration_db";
 	private static String HOST_NAME="127.0.0.1";
 	

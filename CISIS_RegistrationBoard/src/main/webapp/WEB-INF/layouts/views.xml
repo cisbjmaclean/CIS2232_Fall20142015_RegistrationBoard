@@ -25,7 +25,7 @@
     </definition>
     
     <definition name="addEmployment" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/employment/member_employment_add.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/employment/member_employer_add.jsp" />
     </definition>
 
     <definition name="pd" extends="DefaultTemplate">

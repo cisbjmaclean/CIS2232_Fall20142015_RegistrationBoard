@@ -3,14 +3,13 @@ package controller;
 import beans.ChangePassword;
 import beans.CodeValue;
 import beans.MemberEducation;
-import beans.MemberEmployment;
+import beans.MemberEmployer;
 import beans.MemberRegistration;
 import beans.Notification;
 import business.MemberBO;
 import business.MemberEducationBO;
 import business.MemberEmploymentBO;
 import business.NotificationBO;
-import business.ProfessionalDevelopmentBO;
 import forms.Menu;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -61,6 +60,10 @@ public class MenuController {
             MemberEmploymentBO.setupEmployers(request, currentMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Employment");
+        }
+        else if (menu.getAction().equalsIgnoreCase("Add Employer")) {
+            mv = new ModelAndView("addEmployment");
+            mv.addObject("memberEmployer", new MemberEmployer());
         }
         else if (menu.getAction().equalsIgnoreCase("Professional Development")) {
             System.out.println("Call to Professinal Development JSP");
