@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package util;
 
 import java.util.ResourceBundle;
@@ -22,9 +21,8 @@ public class Util {
     public static int GENDER_CODE_TYPE = 6;
     public static int COUNTRIES_CODE_TYPE = 7;
     public static int EDUCATION_PROGRAM_CODE_TYPE = 8;
-    
+
     public static boolean debugOn = true;
     public static ResourceBundle resources = null;
 
-    
 }
