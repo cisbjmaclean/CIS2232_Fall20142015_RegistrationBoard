@@ -34,7 +34,7 @@ public class ProfessionalDevelopmentDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM `pd_type` WHERE 1";
+            sql = "SELECT * FROM `pd_type`";
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

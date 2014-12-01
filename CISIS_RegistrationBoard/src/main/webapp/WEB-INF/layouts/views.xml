@@ -29,7 +29,11 @@
     </definition>
 
     <definition name="pd" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/PD/professional_development.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pd_events.jsp" />
+    </definition>
+    
+    <definition name="addEvent" extends="DefaultTemplate">
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pd_add.jsp" />
     </definition>
     
     <definition name="pdHours" extends="DefaultTemplate">

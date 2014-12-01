@@ -14,9 +14,8 @@
 <body>
     <h2><fmt:message key="label.professional.development"/></h2>
 
-    <form action="EventUpdate" method="post">
+    <form action="menu" method="post">
         <spring:nestedPath path="menu">
-
             <table>
                 <tr>
                     <th>
@@ -43,21 +42,15 @@
                 </c:forEach>
 
                 <tr><td colspan="4"><hr/></td></tr>
-        <!---        <tr>
 
-                    <td colspan="4"><h3><fmt:message key="label.report.event.total" /></strong>&nbsp;&nbsp;
-                            <bean:write name="reportForm" property="total"/></u></h3></td>
-
-                </tr>
-                <tr><td colspan="4"><hr/></td></tr>
-                <form action="/Menu">
-                    <tr>
-                        <td colspan="4">
-                            <input type="submit" name="action" value="<fmt:message key='label.professional.development.add'/>"/>
-                        </td>
-                    </tr>
-                </form>  -->
-            </spring:nestedPath>
-        </table>  
+                <tr>
+                    <td colspan="4">
+                        <input type="submit" name="action" value="<fmt:message key='label.professional.development.add'/>"/>
+                    </td>
+                </tr> 
+                
+        </form>  
+    </spring:nestedPath>
+</table>  
 </body>
 

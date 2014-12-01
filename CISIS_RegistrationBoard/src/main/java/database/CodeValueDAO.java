@@ -39,6 +39,7 @@ public static void loadCodes(HttpServletRequest request){
     request.getSession().setAttribute("divisions",getCodeValues("18"));
     request.getSession().setAttribute("levels",getCodeValues("19"));
     request.getSession().setAttribute("clubs",getCodeValues("20"));
+     request.getSession().setAttribute("pd_types",getCodeValues("21"));
     
     
     return;
