@@ -14,6 +14,7 @@ import forms.Menu;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,7 +73,7 @@ public class MemberEmploymentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView onSubmit(HttpServletRequest request, @ModelAttribute("memberEmployer") MemberEmployer memberEmployer) {
+    public ModelAndView onSubmit(HttpServletRequest request, @ModelAttribute("memberEmployer") MemberEmployer memberEmployer) throws Exception {
         //pass validation if they enter "TEST" and "TEST"
         String informationMessage = "";
         String errorMessage = "";
@@ -113,7 +114,7 @@ public class MemberEmploymentController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllActiveMembers());
 
-        } else {
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("add")) {
 
             try {
                 String loggedInUserId = (String) request.getSession().getAttribute("loggedInUserId");
@@ -130,6 +131,18 @@ public class MemberEmploymentController {
             MemberEmploymentBO.setupEmployers(request, currentMember.getMember().getMemberId());
             mv.addObject("menu", new Menu());
             mv.addObject("informationMessage", "Employer added");
+        } else {
+            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
+            //MemberEmployment memberEmployment; 
+            //memberEmployment = MemberEmploymentBO.getMemberEmployment(currentMember.getMember().getMemberId());
+            
+            //MemberEmployment me = new MemberEmployment();
+            //BeanUtils.copyProperties(me, currentMember.getMember().getMemberId());
+            //me.setMemberId(currentMember.getMember().getMemberId());
+            //MemberEmploymentBO.updateEmployment(MemberEmploymentBO.getMemberEmployment(currentMember.getMember().getMemberId()));
+            mv = new ModelAndView("welcome");
+            mv.addObject("menu", new Menu());
+            //mv.addObject("informationMessage", "Employer added");
         }
         return mv;
     }

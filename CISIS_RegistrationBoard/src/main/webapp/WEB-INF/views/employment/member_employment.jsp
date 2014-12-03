@@ -21,7 +21,7 @@
     </script>
 </head>
 
-<form action="menu" method="post">
+<form action="memberEmployment" method="post">
     <spring:nestedPath path="memberEmployment">
 
         <table>
