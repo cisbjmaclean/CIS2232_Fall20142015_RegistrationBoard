@@ -16,6 +16,7 @@ import util.DbUtils;
  */
 public class MemberRegistrationDAO {
 
+    
     public static void addMemberRegistration(MemberRegistration memberBoard) throws Exception {
 
         System.out.println("inserting a new member");

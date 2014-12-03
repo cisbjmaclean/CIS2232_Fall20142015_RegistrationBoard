@@ -10,29 +10,34 @@
 
     <html:base/>
 </head>
-<spring:nestedPath path="login">
-    <form action="login" method="post">
+<spring:nestedPath path="member">
+    <form action="register" method="post">
         <body>
-            <h2>Please provide your login details</h2>
+            <h2>Please provide your new user details</h2>
             <table>
                 <tr>
-                    <td>Username:</td>
-                    <td><form:input path="username" value="bjmaclean"/>
+                    <td>First Name:</td>
+                    <td><form:input path="firstName" value=""/>
                     </td>
                 </tr>          
                 <tr>
-                    <td>Password:</td>
-                    <td><form:input path="password" value="bjmacleanpw"/>
+                    <td>Middle Name:</td>
+                    <td><form:input path="middleName" value=""/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><form:input path="lastName" value=""/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><form:input path="emailAddress" value=""/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="action" value="Login"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="action" value="Register"/>
+                        <input type="submit" value="Submit"/>
                     </td>
                 </tr>
             </table>

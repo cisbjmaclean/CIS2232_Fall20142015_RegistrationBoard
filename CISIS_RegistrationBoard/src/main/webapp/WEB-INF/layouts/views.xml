@@ -60,6 +60,10 @@
         <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
     </definition>
 
+    <definition name="register" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body"	value="/WEB-INF/views/base/register.jsp" />
+    </definition>
+    
     <definition name="notification" extends="DefaultTemplate">
         <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
     </definition>
