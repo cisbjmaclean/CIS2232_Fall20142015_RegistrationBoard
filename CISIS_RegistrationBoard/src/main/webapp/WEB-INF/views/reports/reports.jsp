@@ -22,7 +22,7 @@
             <tr>
                 <td colspan="2">
                     <h2>Inactive Members</h2>
-                    <a href="memberAdmin?action=confirmAll">Confirm all member</a>
+                    <a href="memberAdmin?action=activeAll">Active all members</a>
                 </td>
             </tr>
             <tr>
@@ -37,11 +37,40 @@
                         <c:out value="${thisMember.lastName}" />, <c:out value="${thisMember.firstName}" />
                     </td>
                     <td>
-                        <a href="memberAdmin?action=confirm&memberId=${thisMember.memberId}">confirm</a>
+                        <a href="memberAdmin?action=active&memberId=${thisMember.memberId}">Active</a>
                     </td>
                 </tr>
             </c:forEach>
                 
+            <tr>
+                <td>
+                   <hr />
+                </td>
+            </tr>
+            
+            <!-- For all list of waiting final confirm-->
+            <tr>                
+                <td colspan="2">
+                    <h2>Confirmed Members</h2>
+                    <a href="memberAdmin?action=confirmAll">Confirm all member</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    ${message}${informationMessage}
+                </td>
+            </tr>
+
+            <c:forEach var="thisConfirm" items="${memberConfirm}" varStatus="loopCounter">
+                <tr>
+                    <td>
+                        <c:out value="${thisConfirm.lastName}" />, <c:out value="${thisConfirm.firstName}" />
+                    </td>
+                    <td>
+                        <a href="memberAdmin?action=confirm&memberId=${thisConfirm.memberId}">confirm</a>
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
     </form>
 </spring:nestedPath>

@@ -31,7 +31,7 @@
                 <tr>
                     <td>
                         <c:forEach var="theProgram" items="${sessionScope.pd_types}" varStatus="loopCounter">
-                            <form:radiobutton path="pdCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/>
+                            <form:radiobutton path="pdCode" value="${theProgram.codeValueSequence}" label="${theProgram.description}"/><br/>
                         </c:forEach>
                     </td>
                 </tr>

@@ -110,7 +110,7 @@ public class MemberBO {
         //Any validation?
 
         ReportsDAO.confirmMembers(member);
-        return MemberDAO.getAllActiveMembers();
+        return ReportsDAO.getAllInactiveMembers();
     }
 
     public static void confirmAllMembers() throws Exception {
@@ -131,6 +131,20 @@ public class MemberBO {
      */
     public static ArrayList<SummaryScreen> getUserSummary(int memberId) {
         return SummaryScreenDAO.getUserSummary(memberId);
+    }
+    
+    // for get all list of waiting from ReportDAO
+    public static ArrayList<Member> getAllConfirmMembers() {
+        return ReportsDAO.getAllconfirmMembers();
+    }
+
+    public static void confirmAllConfirmMembers() {
+        ReportsDAO.confirmAllConfirmMembers();
+    }
+
+    public static ArrayList<Member> confirmAmembers(Member aMember) {
+        ReportsDAO.confirmaMembers(aMember);
+        return ReportsDAO.getAllconfirmMembers();
     }
 
 }

@@ -83,6 +83,7 @@ public class MenuController {
             System.out.println("User wants to view the reports");
             mv = new ModelAndView("reports");
             mv.addObject("members", MemberBO.getAllInactiveMembers());
+            mv.addObject("memberConfirm", MemberBO.getAllConfirmMembers()); // for get waiting list
         } else if (menu.getAction().equalsIgnoreCase("My Information")) {
             currentMember = (MemberRegistration) request.getSession().getAttribute("loggedInMember");
             request.getSession().setAttribute("currentMember", currentMember);

@@ -53,7 +53,7 @@ public class MemberAdminController {
             mv.addObject("memberRegistration", new MemberRegistration());
         }
         //report
-        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirmAll")) {
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("activeAll")) {
             try {
                 MemberBO.confirmAllMembers();
             } catch (Exception ex) {
@@ -66,7 +66,7 @@ public class MemberAdminController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
         }
-        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirm")) {
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("active")) {
             try {
                 aMember = MemberBO.getMember(request.getParameter("memberId"));
                 MemberBO.confirmMembers(aMember);
@@ -80,7 +80,33 @@ public class MemberAdminController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
         } 
-        
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirmAll")) {
+            try {
+                MemberBO.confirmAllConfirmMembers();
+            } catch (Exception ex) {
+                Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+            
+            message = "All members is confirmed";
+            mv = new ModelAndView("reports");
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllConfirmMembers());
+        }
+        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirm")) {
+            try {
+                aMember = MemberBO.getMember(request.getParameter("memberId"));
+                MemberBO.confirmAmembers(aMember);
+            } catch (Exception ex) {
+                Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+            
+            message = "confrim members";
+            mv = new ModelAndView("reports");
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllConfirmMembers());
+        }
         
         else {
             //Get the memberBio

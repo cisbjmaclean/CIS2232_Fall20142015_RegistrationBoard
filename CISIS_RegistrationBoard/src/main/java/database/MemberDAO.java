@@ -33,7 +33,7 @@ public class MemberDAO {
             }
             member.setMemberId(nextMESequence);
             sql = "INSERT INTO member "
-                    + "  (`member_id`, `user_id`, `organization_type`, `status_type`, "
+                    + "  (`member_id`, `user_id`, `organization_type`, `status_type`, `confirm_type`"
                     + "   `user_type`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) "
                     + "  VALUES (?, ?, ?, ?, ?,"
                     + "  sysdate(), ?, sysdate(), ?)";
@@ -43,9 +43,10 @@ public class MemberDAO {
             ps.setString(2, member.getNewUserId());
             ps.setInt(3, 1);
             ps.setInt(4, 1);
-            ps.setInt(5, member.getUserType());
-            ps.setString(6, member.getUserId());
+            ps.setInt(5, 2);
+            ps.setInt(6, member.getUserType());
             ps.setString(7, member.getUserId());
+            ps.setString(8, member.getUserId());
             ps.executeUpdate();
 
             sql = "INSERT INTO member_access "
