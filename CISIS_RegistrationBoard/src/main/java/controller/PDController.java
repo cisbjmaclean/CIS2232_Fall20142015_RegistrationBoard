@@ -23,7 +23,7 @@ import static sun.security.jgss.GSSUtil.login;
  * @author bjmaclean
  */
 @Controller
-@RequestMapping("pdConfirm")
+@RequestMapping("pd")
 public class PDController {
 
     @RequestMapping(method = RequestMethod.POST)

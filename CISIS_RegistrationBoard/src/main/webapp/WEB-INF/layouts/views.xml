@@ -37,11 +37,11 @@
     </definition>
     
     <definition name="pdHours" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/PD/pdHours.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pd_hours.jsp" />
     </definition>
     
     <definition name="pdConfirm" extends="DefaultTemplate">
-        <put-attribute name="body"	value="/WEB-INF/views/PD/pdConfirm.jsp" />
+        <put-attribute name="body"	value="/WEB-INF/views/PD/pd_confirm.jsp" />
     </definition>
     
     <definition name="pdSuccess" extends="DefaultTemplate">

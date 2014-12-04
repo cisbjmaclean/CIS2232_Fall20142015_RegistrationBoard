@@ -13,8 +13,8 @@
 
     <h2><fmt:message key="label.professional.development"/></h2>
     <div>
-        <form action="PdConfirm" method="post">
-            <spring:nestedPath path="menu">
+        <form action="pdConfirm" method="post">
+            <spring:nestedPath path="event">
                 <table>  
                    <tr>
                     <td>
