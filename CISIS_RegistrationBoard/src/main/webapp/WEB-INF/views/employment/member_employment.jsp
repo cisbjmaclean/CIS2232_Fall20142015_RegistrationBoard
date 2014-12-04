@@ -21,7 +21,7 @@
     </script>
 </head>
 
-<form action="memberEmployment" method="post">
+<form action="memberUpdateEmployment" method="post">
     <spring:nestedPath path="memberEmployment">
 
         <table>
@@ -75,6 +75,8 @@
                     <input type="submit" name="action" value='<fmt:message key="label.save"/>'>
                 </td>
             </tr>
+</form>
+                <form action="memberEmployment" method="post">
             <tr>
                 <td>
                     <hr/>
@@ -86,13 +88,8 @@
                         <strong><fmt:message key="label.employers" /></strong></label>
                 </td>
             </tr>
-
-
-
-
-
             <!--New code changing-->
-            
+          
 
             <c:forEach var="thisEmployer" items="${sessionScope.Employers}" varStatus="loopCounter">
 

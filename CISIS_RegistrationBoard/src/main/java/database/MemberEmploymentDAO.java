@@ -5,6 +5,7 @@ import beans.MemberEmployment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.http.HttpServletRequest;
 import util.ConnectionUtils;
 import util.DbUtils;
 
@@ -51,7 +52,7 @@ public class MemberEmploymentDAO {
         PreparedStatement ps = null;
         String sql = null;
         Connection conn = null;
-
+        
         /*
          * Setup the sql to update or insert the row.
          */
@@ -59,8 +60,8 @@ public class MemberEmploymentDAO {
             conn = ConnectionUtils.getConnection();
             sql = "UPDATE member_employment SET "
                     + "employment_status_code=?, currency_code=?,"
-                    + "practice_via_telephone_ind=?,practice_via_internet_ind=?,"
-                    + "practice_in_person_ind=?,practice_jurisdictions=? "
+                    + "practice_via_telephone_ind=?, practice_via_internet_ind=?,"
+                    + "practice_in_person_ind=?, practice_jurisdictions=? "
                     + "WHERE member_id = ?";
 
             ps = conn.prepareStatement(sql);

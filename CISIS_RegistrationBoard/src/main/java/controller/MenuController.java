@@ -5,6 +5,7 @@ import beans.CodeValue;
 import beans.Event;
 import beans.MemberEducation;
 import beans.MemberEmployer;
+import beans.MemberEmployment;
 import beans.MemberRegistration;
 import beans.Notification;
 import business.MemberBO;
@@ -63,6 +64,9 @@ public class MenuController {
         } else if (menu.getAction().equalsIgnoreCase("Add Employer")) {
             mv = new ModelAndView("addEmployment");
             mv.addObject("memberEmployer", new MemberEmployer());
+        } else if (menu.getAction().equalsIgnoreCase("Edit Employer")) {
+            mv = new ModelAndView("editEmployment");
+            mv.addObject("memberEmployment", new MemberEmployment());
         } else if (menu.getAction().equalsIgnoreCase("Professional Development")) {
             System.out.println("Call to Professinal Development JSP");
             mv = new ModelAndView("pd");
@@ -71,8 +75,8 @@ public class MenuController {
             mv.addObject("informationMessage", "Professional Development");
         } else if (menu.getAction().equalsIgnoreCase("Add Event")) {
             mv = new ModelAndView("addEvent");
-           // ProfessionalDevelopmentDAO.loadCodes(request);
-           System.out.println("user wants to add event");
+            // ProfessionalDevelopmentDAO.loadCodes(request);
+            System.out.println("user wants to add event");
             mv.addObject("event", new Event());
         } else if (menu.getAction().equalsIgnoreCase("Make Payment")) {
             System.out.println("Payment functionaity to be completed");
