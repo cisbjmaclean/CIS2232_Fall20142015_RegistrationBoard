@@ -29,7 +29,11 @@ public class ConnectionUtils {
         System.out.println("Pw=" + USER_PASSWORD_DB);
         try {
             conn = DriverManager.getConnection(URL, USER_NAME_DB, USER_PASSWORD_DB);
+<<<<<<< HEAD
             conn.setAutoCommit(true);
+=======
+            conn.setAutoCommit(false);
+>>>>>>> origin/master
         } catch (Exception e) {
             e.printStackTrace();
         }
