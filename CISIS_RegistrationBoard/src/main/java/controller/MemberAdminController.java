@@ -4,6 +4,7 @@ import beans.Member;
 import beans.MemberRegistration;
 import beans.MemberSquash;
 import business.MemberBO;
+import business.MemberRegistrationBO;
 import business.MemberSquashBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -110,11 +111,11 @@ public class MemberAdminController {
         
         else {
             //Get the memberBio
-            MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
+            MemberRegistration memberRegistration = MemberRegistrationBO.getMember(request.getParameter("memberId"));
             mv = new ModelAndView("memberBio");
-            mv.addObject("memberSquash", memberSquash);
+            mv.addObject("memberRegistration", memberRegistration);
             if (request.getParameter("memberId").equals((String) request.getSession().getAttribute("loggedInUserId"))) {
-                request.getSession().setAttribute("loggedInMember", memberSquash);
+                request.getSession().setAttribute("loggedInMember", memberRegistration);
             }
         }
         return mv;

@@ -188,7 +188,7 @@ public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.
             conn = ConnectionUtils.getConnection();
 
             sql = "SELECT * FROM member_bio mb, member m WHERE "
-                    + "m.confirm_type = 2 and "
+                    + "m.confirm_status = 2 and "
                     + "m.created_date_time >= '" + year + "-01-01' and "
                     + "m.member_id = mb.member_id";
 
@@ -233,7 +233,7 @@ public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "UPDATE member SET confirm_type = ? WHERE confirm_type = ?";
+            sql = "UPDATE member SET confirm_status = ? WHERE confirm_status = ?";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, 1);
@@ -258,8 +258,8 @@ public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "UPDATE member SET confirm_type = 1 where "
-                    + "confirm_type = 2 and member_id = ?";
+            sql = "UPDATE member SET confirm_status = 1 where "
+                    + "confirm_status = 2 and member_id = ?";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, aMember.getMemberId());
