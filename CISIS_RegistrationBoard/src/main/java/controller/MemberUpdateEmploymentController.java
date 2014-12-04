@@ -8,10 +8,7 @@ import business.MemberEmploymentBO;
 import business.MemberRegistrationBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
-=======
->>>>>>> origin/master
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,19 +33,12 @@ public class MemberUpdateEmploymentController {
 //        return "welcome";
 //    }
     @RequestMapping(method = RequestMethod.POST)
-<<<<<<< HEAD
     public ModelAndView onSubmit(@ModelAttribute("memberEmployment") MemberEmployment memberEmployment, HttpServletRequest request) {
         //pass validation if they enter "TEST" and "TEST"
 
         try {
             MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
             memberEmployment.setMemberId(currentMember.getMember().getMemberId());
-=======
-    public ModelAndView onSubmit(@ModelAttribute("memberEmployment") MemberEmployment memberEmployment) {
-        //pass validation if they enter "TEST" and "TEST"
-
-        try {
->>>>>>> origin/master
             MemberEmploymentBO.updateEmployment(memberEmployment);
         } catch (Exception ex) {
             Logger.getLogger(MemberUpdateEmploymentController.class.getName()).log(Level.SEVERE, null, ex);
