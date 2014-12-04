@@ -58,8 +58,7 @@ public class MemberEmploymentController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllActiveMembers());
 
-        } 
-         else {
+        } else {
             //Get the memberBio
             //this is for the edit
             MemberSquash memberSquash = MemberSquashBO.getMember(request.getParameter("memberId"));
@@ -77,22 +76,12 @@ public class MemberEmploymentController {
         //pass validation if they enter "TEST" and "TEST"
         String informationMessage = "";
         String errorMessage = "";
-//        String notificationToDelete = request.getParameter("delete");
-//        if (!(notificationToDelete == null || notificationToDelete.isEmpty())) {
-//            try {
-//                NotificationBO.deleteNotification(Integer.parseInt(notificationToDelete));
-//                informationMessage = "Notification deleted";
-//            } catch (Exception ex) {
-//                System.out.println("Error deleting notification");
-//                errorMessage= "Error deleting notification";
-//            }
-//        } else {
 
         //check the parameters.
         String actionSpecified = request.getParameter("action");
         System.out.println("Action specified=" + actionSpecified);
-        String memberId = request.getParameter("memberId");
-        System.out.println("member to delete=" + memberId);
+       //  String memberId = request.getParameter("memberId");
+       //  System.out.println("member to delete=" + memberId);
 
         // Member theMember = MemberBO.getMember(request.getParameter("memberId"));
         Member aMember = new Member();
@@ -114,7 +103,7 @@ public class MemberEmploymentController {
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllActiveMembers());
 
-        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("add")) {
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("Add Employer")) {
 
             try {
                 String loggedInUserId = (String) request.getSession().getAttribute("loggedInUserId");
@@ -126,23 +115,36 @@ public class MemberEmploymentController {
                 System.out.println("Error inserting education");
             }
 
-            mv = new ModelAndView("employment");
-            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
-            MemberEmploymentBO.setupEmployers(request, currentMember.getMember().getMemberId());
-            mv.addObject("menu", new Menu());
-            mv.addObject("informationMessage", "Employer added");
-        } else {
-            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
-            //MemberEmployment memberEmployment; 
-            //memberEmployment = MemberEmploymentBO.getMemberEmployment(currentMember.getMember().getMemberId());
+            mv = new ModelAndView("addEmployment");                       
+            mv.addObject("memberEmployer", new MemberEmployer());
             
-            //MemberEmployment me = new MemberEmployment();
-            //BeanUtils.copyProperties(me, currentMember.getMember().getMemberId());
-            //me.setMemberId(currentMember.getMember().getMemberId());
-            //MemberEmploymentBO.updateEmployment(MemberEmploymentBO.getMemberEmployment(currentMember.getMember().getMemberId()));
-            mv = new ModelAndView("welcome");
-            mv.addObject("menu", new Menu());
-            //mv.addObject("informationMessage", "Employer added");
+        } else {
+//            Member member = (Member) request.getAttribute("member");
+//            member = MemberBO.getMember(request.getParameter("memberId"));
+//            MemberEmployment memberEmployment = (MemberEmployment) request.getAttribute("memberEmployment");
+//            //MemberEmployment memberEmployment; 
+//            //memberEmployment = MemberEmploymentBO.getMemberEmployment(currentMember.getMember().getMemberId());
+//            
+//            MemberEmployment me = new MemberEmployment();
+//            BeanUtils.copyProperties(me, member);
+//            BeanUtils.copyProperties(me, memberEmployment);
+//            me.setMemberId(member.getMemberId());
+//            MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
+//           
+//            int memberId = currentMember.getMember().getMemberId();
+//            MemberEmployment mEmp = new MemberEmployment();
+//            mEmp.setStatusCode(getMemberEmployment(memberId).getStatusCode());
+//            mEmp.setCurrencyCode(MemberEmploymentBO.getMemberEmployment(memberId).getCurrencyCode());
+//            mEmp.setPracticeJurisdictions(MemberEmploymentBO.getMemberEmployment(memberId).getPracticeJurisdictions());
+//            mEmp.setPrimaryIndicator(MemberEmploymentBO.getMemberEmployment(memberId).isPrimaryIndicator());
+//            mEmp.setMemberId(MemberEmploymentBO.getMemberEmployment(memberId).getMemberId());
+//            mEmp.setPracticeInPersonIndicator(MemberEmploymentBO.getMemberEmployment(memberId).isPracticeInPersonIndicator());
+//            mEmp.setPracticeViaTelephoneIndicator(MemberEmploymentBO.getMemberEmployment(memberId).isPracticeViaTelephoneIndicator());
+//            mEmp.setPracticeViaInternetIndicator(MemberEmploymentBO.getMemberEmployment(memberId).isPracticeViaInternetIndicator());
+//            MemberEmploymentBO.updateEmployment(mEmp);
+//            mv = new ModelAndView("welcome");
+//            mv.addObject("menu", new Menu());
+//            //mv.addObject("informationMessage", "Employer added");
         }
         return mv;
     }
