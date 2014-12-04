@@ -19,15 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("notification")
 public class NotificationController {
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String loadMember(ModelMap model) {
-//
-//        model.addAttribute("memberBio", new Member());
-//        return "welcome";
-//    }
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(HttpServletRequest request, @ModelAttribute("notification") Notification notification) {
-        //pass validation if they enter "TEST" and "TEST"
+
         String informationMessage = "";
         String errorMessage = "";
         String notificationToDelete = request.getParameter("delete");
@@ -37,7 +31,7 @@ public class NotificationController {
                 informationMessage = "Notification deleted";
             } catch (Exception ex) {
                 System.out.println("Error deleting notification");
-                errorMessage= "Error deleting notification";
+                errorMessage = "Error deleting notification";
             }
         } else {
 
@@ -54,8 +48,8 @@ public class NotificationController {
         ModelAndView mv;
         mv = new ModelAndView("notification");
         mv.addObject("notifications", NotificationBO.getNotifications());
-        mv.addObject("errorMessage",errorMessage);
-        mv.addObject("informationMessage",informationMessage);
+        mv.addObject("errorMessage", errorMessage);
+        mv.addObject("informationMessage", informationMessage);
         mv.addObject("menu", new Menu());
 
         return mv;

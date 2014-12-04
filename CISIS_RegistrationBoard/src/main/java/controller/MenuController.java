@@ -13,7 +13,6 @@ import business.MemberEducationBO;
 import business.MemberEmploymentBO;
 import business.NotificationBO;
 import business.ProfessionalDevelopmentBO;
-import database.ProfessionalDevelopmentDAO;
 import forms.Menu;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -33,7 +32,6 @@ public class MenuController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu, HttpServletRequest request) {
-        //pass validation if they enter "TEST" and "TEST"
 
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
 

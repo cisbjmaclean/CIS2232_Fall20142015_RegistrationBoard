@@ -2,10 +2,8 @@ package controller;
 
 import beans.Member;
 import beans.MemberRegistration;
-import beans.MemberSquash;
 import business.MemberBO;
 import business.MemberRegistrationBO;
-import business.MemberSquashBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -52,8 +50,7 @@ public class MemberAdminController {
             mv = new ModelAndView("memberBio");
             mv.addObject("informationMessage", message);
             mv.addObject("memberRegistration", new MemberRegistration());
-        }
-        //report
+        } //report
         else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("activeAll")) {
             try {
                 MemberBO.confirmAllMembers();
@@ -61,13 +58,12 @@ public class MemberAdminController {
                 Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error deleting the member.");
             }
-            
+
             message = "All members is confirmed";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
-        }
-        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("active")) {
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("active")) {
             try {
                 aMember = MemberBO.getMember(request.getParameter("memberId"));
                 MemberBO.confirmMembers(aMember);
@@ -75,26 +71,24 @@ public class MemberAdminController {
                 Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error deleting the member.");
             }
-            
+
             message = "confrim members";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
-        } 
-        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirmAll")) {
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirmAll")) {
             try {
                 MemberBO.confirmAllConfirmMembers();
             } catch (Exception ex) {
                 Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error deleting the member.");
             }
-            
+
             message = "All members is confirmed";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllConfirmMembers());
-        }
-        else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirm")) {
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("confirm")) {
             try {
                 aMember = MemberBO.getMember(request.getParameter("memberId"));
                 MemberBO.confirmAmembers(aMember);
@@ -102,14 +96,12 @@ public class MemberAdminController {
                 Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error deleting the member.");
             }
-            
+
             message = "confrim members";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllConfirmMembers());
-        }
-        
-        else {
+        } else {
             //Get the memberBio
             MemberRegistration memberRegistration = MemberRegistrationBO.getMember(request.getParameter("memberId"));
             mv = new ModelAndView("memberBio");

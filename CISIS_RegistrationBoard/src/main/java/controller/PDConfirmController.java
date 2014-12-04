@@ -2,22 +2,14 @@ package controller;
 
 import beans.Event;
 import beans.MemberRegistration;
-import beans.ProfessionalDevelopment;
 import business.ProfessionalDevelopmentBO;
 import database.ProfessionalDevelopmentDAO;
-import forms.Login;
-import forms.Menu;
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
-import static sun.security.jgss.GSSUtil.login;
 
 /**
  * Controller for the Welcome
@@ -36,7 +28,7 @@ public class PDConfirmController {
         //Set all the variables.
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         theEvent.setMemberId(currentMember.getMember().getMemberId());
-        
+
         theEvent.setDate(event.getDate());
         theEvent.setEventNum(event.getEventNum());
         theEvent.setHour(event.getHour());

@@ -26,14 +26,14 @@ public class ChangePasswordController {
     public ModelAndView onSubmit(@ModelAttribute("changePassword") ChangePassword changePassword, HttpServletRequest request) {
         System.out.println("Change password post invoked");
         try {
-            MemberBO.changePassword((Member)request.getSession().getAttribute("loggedInMember"), changePassword);
+            MemberBO.changePassword((Member) request.getSession().getAttribute("loggedInMember"), changePassword);
         } catch (PasswordException ex) {
             System.out.println("There was a password exception");
             Logger.getLogger(ChangePasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }
         ModelAndView mv;
         mv = new ModelAndView("main");
-        mv.addObject("informationMessage","Password changed");
+        mv.addObject("informationMessage", "Password changed");
         return mv;
     }
 }

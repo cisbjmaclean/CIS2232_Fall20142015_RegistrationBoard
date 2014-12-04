@@ -1,20 +1,16 @@
 package controller;
 
 import beans.Member;
-import beans.MemberEducation;
 import beans.MemberEmployer;
-import beans.MemberEmployment;
 import beans.MemberRegistration;
 import beans.MemberSquash;
 import business.MemberBO;
 import business.MemberEducationBO;
 import business.MemberEmploymentBO;
 import business.MemberSquashBO;
-import forms.Menu;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,7 +77,7 @@ public class MemberEmploymentController {
         String actionSpecified = request.getParameter("action");
         System.out.println("Action specified=" + actionSpecified);
        //  String memberId = request.getParameter("memberId");
-       //  System.out.println("member to delete=" + memberId);
+        //  System.out.println("member to delete=" + memberId);
 
         // Member theMember = MemberBO.getMember(request.getParameter("memberId"));
         Member aMember = new Member();
@@ -115,9 +111,9 @@ public class MemberEmploymentController {
                 System.out.println("Error inserting education");
             }
 
-            mv = new ModelAndView("addEmployment");                       
+            mv = new ModelAndView("addEmployment");
             mv.addObject("memberEmployer", new MemberEmployer());
-            
+
         } else {
 //            Member member = (Member) request.getAttribute("member");
 //            member = MemberBO.getMember(request.getParameter("memberId"));

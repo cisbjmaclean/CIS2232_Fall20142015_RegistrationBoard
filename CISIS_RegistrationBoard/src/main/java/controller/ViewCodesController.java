@@ -20,10 +20,9 @@ public class ViewCodesController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("codeValue") CodeValue codeValue) {
-        //pass validation if they enter "TEST" and "TEST"
         ModelAndView mv;
-         mv = new ModelAndView("viewCodeValues");
-        System.out.println("code type entered="+codeValue.getCodeTypeId());
+        mv = new ModelAndView("viewCodeValues");
+        System.out.println("code type entered=" + codeValue.getCodeTypeId());
         ArrayList<CodeValue> test = getCodeValues(String.valueOf(codeValue.getCodeTypeId()));
         mv.addObject("theCollection", test);
         return mv;

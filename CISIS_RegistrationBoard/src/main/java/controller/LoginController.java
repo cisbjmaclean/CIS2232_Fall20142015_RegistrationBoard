@@ -1,12 +1,9 @@
 package controller;
 
-import beans.ChangePassword;
 import beans.Member;
 import beans.MemberRegistration;
-import beans.Register;
 import business.AccessBO;
 import business.MemberBO;
-import business.MemberEducationBO;
 import business.MemberRegistrationBO;
 import database.CodeValueDAO;
 import forms.Login;
@@ -35,8 +32,7 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(HttpServletRequest request, @ModelAttribute("login") Login login) {
         System.out.println("The form was submitted and the username was ***" + login.getUsername() + "***");
-        // Menu menu = new Menu();
-        //pass validation if they enter "TEST" and "TEST"
+
         ModelAndView mv;
         boolean validCredentials = false;
 
@@ -55,8 +51,6 @@ public class LoginController {
 
                 CodeValueDAO.loadCodes(request);
                 mv = new ModelAndView("summary");
-//            mv = new ModelAndView("memberBio");
-//            MemberRegistrationBoard ms = new MemberRegistrationBoard();
                 System.out.println("getting member for " + login.getUsername());
                 request.getSession().setAttribute("loggedInUserId", login.getUsername());
                 MemberRegistration theMember = MemberRegistrationBO.getMemberByUserid(login.getUsername());
