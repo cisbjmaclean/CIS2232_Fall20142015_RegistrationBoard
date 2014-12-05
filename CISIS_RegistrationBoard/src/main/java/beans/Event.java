@@ -1,6 +1,5 @@
 package beans;
 
-
 /**
  *
  * @author Roger Myers
@@ -14,7 +13,25 @@ public class Event {
     private String pdDescription = "";//This is the string that holds the description for the drop down items
     private String date = "";
     private double hour;
-    private String description ="";//This is the user entered description for the event.
+    private String description = "";//This is the user entered description for the event.
+    private String firstName = "";
+    private String lastName = "";
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Event() {
         //do nothing
@@ -75,6 +92,5 @@ public class Event {
     public void setHour(double hour) {
         this.hour = hour;
     }
-    
 
 }

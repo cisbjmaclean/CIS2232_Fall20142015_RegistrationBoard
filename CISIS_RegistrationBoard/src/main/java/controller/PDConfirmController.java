@@ -29,17 +29,19 @@ public class PDConfirmController {
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         theEvent.setMemberId(currentMember.getMember().getMemberId());
 
+        theEvent.setFirstName(currentMember.getMember().getFirstName());
+        theEvent.setLastName(currentMember.getMember().getLastName());
         theEvent.setDate(event.getDate());
         theEvent.setEventNum(event.getEventNum());
         theEvent.setHour(event.getHour());
-        theEvent.setMemberId(event.getMemberId());
+       //  theEvent.setMemberId(event.getMemberId());
         theEvent.setPdCode(event.getPdCode());
         theEvent.setDescription(event.getDescription());
 
         //Pass the theEvent to the PDDAO which will update the database.
         ProfessionalDevelopmentDAO.updateEvent(theEvent);
         //Give them a new JSP with feedbad that the theEvent was added successfully.
-        ProfessionalDevelopmentBO.getEvents(request, event.getMemberId());
+        ProfessionalDevelopmentBO.getEvents(request, theEvent.getMemberId());
 
         ModelAndView mv = new ModelAndView("pd");
         return mv;

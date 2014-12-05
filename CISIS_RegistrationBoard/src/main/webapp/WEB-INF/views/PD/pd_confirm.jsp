@@ -11,45 +11,46 @@
     <title><fmt:message key="welcome.title"/></title>
 </head>
 
-    <h2><fmt:message key="label.professional.development"/></h2>
-    <div>
-        <form action="pdConfirm" method="post">
-            <spring:nestedPath path="event">
-                <table>  
-                   <tr>
+<h2><fmt:message key="label.professional.development"/></h2>
+<div>
+    <form action="pdConfirm" method="post">
+        <spring:nestedPath path="event">
+            <table>  
+                <tr>
                     <td>
                         <label class="alignCenter"  for="pdCode">
-                            <html:hidden property="pdCode" />
+                            <form:hidden path="pdCode" />
                             <strong><fmt:message key="label.professional.development.confirm" /></strong>
                         </label><br />
-                        <html:hidden property="firstName"/>
+                        <form:hidden path="firstName"/><form:hidden path="lastName"/>
                         <strong><fmt:message key="label.professional.development.confirm.name" /></strong>
-                        <bean:write name="eventForm" property="firstName" />&nbsp<html:hidden property="lastName"/>
-                        <bean:write name="eventForm" property="lastName" /><br />  
-                        <html:hidden property="memberId" /><strong>
+
+                        <c:out value="${event.firstName}" />&nbsp;<c:out value="${event.lastName}" />
+                        <br />  
+                        <form:hidden path="memberId" /><strong>
                             <fmt:message key="label.professional.development.confirm.memberId" /></strong>
-                        <bean:write name="eventForm" property="memberId" /><br />
-                        <html:hidden property="pdDescription" /><strong>
+                        <c:out value="${event.memberId}" /><br />
+                        <form:hidden path="pdDescription" /><strong>
                             <fmt:message key="label.professional.development.confirm.pdDescription" /></strong>
-                        <bean:write name="eventForm" property="pdDescription" /><br />
-                        <html:hidden property="date" /><strong>
+                        <c:out  value="${event.pdDescription}" /><br />
+                        <form:hidden path="date" /><strong>
                             <fmt:message key="label.professional.development.confirm.date" /></strong>
-                        <bean:write name="eventForm" property="date" /><br />
-                        <html:hidden property="description" /><strong>
+                        <c:out value="${event.date}" /><br />
+                        <form:hidden path="description" /><strong>
                             <fmt:message key="label.professional.development.confirm.description" /></strong>
-                        <bean:write name="eventForm" property="description" /><br />
-                        <logic:greaterThan name="eventForm" value="0" property="hour">
-                            <html:hidden property="hour" /><strong>
-                                <fmt:message key="label.professional.development.confirmHours" />
-                            </strong><bean:write name="eventForm" property="hour" /></logic:greaterThan><br />
-                        </td>
-                    </tr>
-                    <tr align="center">
-                        <td colspan="2">
-                            <input type="submit" value=<fmt:message key="label.submit"/>
+                        <c:out value="${event.description}" /><br />
+                        <c:if test="${event.hour > 0}">
+                              <form:hidden path="hour" /><strong>
+                              <fmt:message key="label.professional.development.confirmHours" />
+                        </strong><c:out  value="${event.hour}" /></c:if><br />
                     </td>
                 </tr>
-          </table>
-        </spring:nestedPath>
-    </form>
+                <tr align="center">
+                    <td colspan="2">
+                        <input type="submit" value=<fmt:message key="label.submit"/>
+                </td>
+            </tr>
+        </table>
+    </spring:nestedPath>
+</form>
 </body>

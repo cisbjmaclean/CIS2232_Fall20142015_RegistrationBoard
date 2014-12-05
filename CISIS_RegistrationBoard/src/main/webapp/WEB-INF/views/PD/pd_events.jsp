@@ -31,7 +31,7 @@
                 <h3><fmt:message key="label.report.event.value" /></h3>
                 </th>
                 </tr>
-                <c:forEach var="report" items="${requestScope.report}">
+                <c:forEach var="report" items="${requestScope.reports}">
                     <tr><td colspan="4"><hr/></td></tr>
                     <tr>
                         <td><c:out value="${report.pdDescription}" /></td>
@@ -42,13 +42,19 @@
                 </c:forEach>
 
                 <tr><td colspan="4"><hr/></td></tr>
+                <tr>
 
+                    <td colspan="4"><h3><fmt:message key="label.report.event.total" /></strong>&nbsp;&nbsp;
+                            <c:out value="${requestScope.report.total}"/></u></h3></td>
+
+
+                </tr>
                 <tr>
                     <td colspan="4">
                         <input type="submit" name="action" value="<fmt:message key='label.professional.development.add'/>"/>
                     </td>
                 </tr> 
-                
+
         </form>  
     </spring:nestedPath>
 </table>  

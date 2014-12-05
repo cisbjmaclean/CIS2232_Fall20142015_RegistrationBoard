@@ -27,8 +27,8 @@ public class ProfessionalDevelopmentBO {
             }
             //Setting attributes back into the request.
             report.setMemberId(memberId);
-            request.setAttribute("reportForm",report);
-            request.setAttribute("report", reports);
+            request.setAttribute("report",report);
+            request.setAttribute("reports", reports);
             //Going to the results of the report page.
             return reports;
 

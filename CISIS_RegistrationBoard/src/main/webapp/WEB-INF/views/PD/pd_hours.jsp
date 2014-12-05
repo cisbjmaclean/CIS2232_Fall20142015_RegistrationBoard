@@ -12,20 +12,23 @@
 </head>
 
 <form action="pdHours" method="post">
-    <spring:nestedPath path="menu">
+    <spring:nestedPath path="event">
 
         <table>
             <tr>
                 <td ><fmt:message key="label.professional.development"/>
                 </td>
             </tr>              
-            <html:hidden property="memberId" /><html:hidden property="firstName"/><html:hidden property="lastName"/><html:hidden property="pdCode" /><html:hidden property="pdDescription" /><html:hidden property="date" /><html:hidden property="description" />
+            <form:hidden path="memberId" /><form:hidden path="firstName"/><form:hidden path="lastName"/>
+            <form:hidden path="pdCode" /><form:hidden path="pdDescription" /><form:hidden path="date" />
+            <form:hidden path="description" />
             <tr>
                 <td><label class="alignCenter"  for="hour">
                         <strong><fmt:message key="label.professional.development.hour" /></strong></label><br />
                         <form:input path="hour" />
                 </td>
             </tr>
+
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" value=<fmt:message key="label.submit"/>

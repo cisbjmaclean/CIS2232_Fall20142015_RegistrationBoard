@@ -6,6 +6,7 @@ import business.AccessBO;
 import business.MemberBO;
 import business.MemberRegistrationBO;
 import database.CodeValueDAO;
+import database.ProfessionalDevelopmentDAO;
 import forms.Login;
 import forms.Menu;
 import java.util.logging.Level;
@@ -48,7 +49,7 @@ public class LoginController {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (validCredentials) {
-
+                ProfessionalDevelopmentDAO.getProfessionalDevelopment();
                 CodeValueDAO.loadCodes(request);
                 mv = new ModelAndView("summary");
                 System.out.println("getting member for " + login.getUsername());

@@ -19,26 +19,30 @@ import org.springframework.web.servlet.ModelAndView;
 public class PDHoursController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView onSubmit(@ModelAttribute("event") Event event, HttpServletRequest request) throws Exception {
+    public ModelAndView onSubmit(@ModelAttribute("event") Event theEvent, HttpServletRequest request) throws Exception {
 
         //Create a new Event object.
         //Set all the variables.
-        Event theEvent = (Event) request.getAttribute("event");
-
+        
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         theEvent.setMemberId(currentMember.getMember().getMemberId());
+        theEvent.setFirstName(currentMember.getMember().getFirstName());
+        theEvent.setLastName(currentMember.getMember().getLastName());
+        
         //Check to make sure that hours has been set
         if (theEvent.getHour() > 0) {
             //Send information back to request
-            request.setAttribute("event", theEvent);
+             ModelAndView mv = new ModelAndView("pdConfirm");
+             mv.addObject("event", theEvent);
             //Send them to the confirm page.
-            ModelAndView mv = new ModelAndView("pdConfirm");
+           
             return mv;
         } else {
             //Send information back to the request
-            request.setAttribute("event", theEvent);
-            //Return them to the page that asks them for the hours.
             ModelAndView mv = new ModelAndView("pdHours");
+            mv.addObject("event", theEvent);
+            //Return them to the page that asks them for the hours.
+            
             return mv;
         }
     }

@@ -14,7 +14,7 @@
 <body>
     <h2><fmt:message key="label.professional.development"/></h2>
 
-    <form action="pdConfirm" method="post">
+    <form action="pdHoursNeeded" method="post">
         <spring:nestedPath path="event">
             <table>             
                 <tr>
