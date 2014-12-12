@@ -26,9 +26,8 @@ public class PDConfirmController {
         //Create a new Event object.
         Event theEvent = new Event();
         //Set all the variables.
-        MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
+        MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");         
         theEvent.setMemberId(currentMember.getMember().getMemberId());
-
         theEvent.setFirstName(currentMember.getMember().getFirstName());
         theEvent.setLastName(currentMember.getMember().getLastName());
         theEvent.setDate(event.getDate());

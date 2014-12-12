@@ -59,7 +59,7 @@ public class MemberAdminController {
                 System.out.println("There was an error deleting the member.");
             }
 
-            message = "All members is confirmed";
+            message = "All members are confirmed.";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
@@ -72,7 +72,7 @@ public class MemberAdminController {
                 System.out.println("There was an error deleting the member.");
             }
 
-            message = "confrim members";
+            message = "confirm members";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllInactiveMembers());
@@ -84,7 +84,7 @@ public class MemberAdminController {
                 System.out.println("There was an error deleting the member.");
             }
 
-            message = "All members is confirmed";
+            message = "All members are confirmed.";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllConfirmMembers());
@@ -97,7 +97,7 @@ public class MemberAdminController {
                 System.out.println("There was an error deleting the member.");
             }
 
-            message = "confrim members";
+            message = "confirm members";
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllConfirmMembers());

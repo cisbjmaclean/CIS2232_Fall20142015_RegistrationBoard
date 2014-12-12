@@ -18,6 +18,9 @@ import util.DbUtils;
 public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
 
     public static ArrayList<Report> getReport(HttpServletRequest request, int memberId) {
+        // get year from session
+        Object year = request.getSession().getAttribute("systemYear");
+        System.out.println(year);
         ArrayList<Report> reports = new ArrayList();
         PreparedStatement ps = null;
         String sql = null;
@@ -26,7 +29,8 @@ public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.
         try {
             conn = ConnectionUtils.getConnection();
             //SQL statement gets me all fields require and checks based on memberId.
-            sql = "SELECT pd_type.pd_hour, pd_type.pd_title_eng, event.date, event.description, event.hour FROM event,pd_type WHERE member_id=" + memberId + " AND event.pd_code = pd_type.pd_code order by event.date desc";
+            sql = "SELECT pd_type.pd_hour, pd_type.pd_title_eng, event.date, event.description, event.hour FROM event,pd_type WHERE member_id="
+                    + memberId + " AND event.pd_code = pd_type.pd_code AND event.date LIKE '" + year + "%' order by event.date desc";
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

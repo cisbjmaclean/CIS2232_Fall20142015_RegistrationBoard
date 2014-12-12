@@ -22,7 +22,7 @@
             <tr>
                 <td colspan="2">
                     <h2>Inactive Members</h2>
-                    <a href="memberAdmin?action=activeAll">Active all members</a>
+                    <a href="memberAdmin?action=activeAll">Activate all members</a>
                 </td>
             </tr>
             <tr>
@@ -52,7 +52,7 @@
             <tr>                
                 <td colspan="2">
                     <h2>Confirmed Members</h2>
-                    <a href="memberAdmin?action=confirmAll">Confirm all member</a>
+                    <a href="memberAdmin?action=confirmAll">Confirm all members</a>
                 </td>
             </tr>
             <tr>

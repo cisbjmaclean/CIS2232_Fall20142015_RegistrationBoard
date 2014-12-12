@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ProfessionalDevelopmentBO {
     public static ArrayList<Report> getEvents(HttpServletRequest request, int memberId) {
     
-            //Create a local array list from the DAO results.
+            //Create a local array list from the DAO results.        
             ArrayList<Report> reports = ReportsDAO.getReport(request, memberId);
             Report report = new Report();
 
@@ -24,6 +24,7 @@ public class ProfessionalDevelopmentBO {
                 reports.get(x).setValue();
                 y = y + reports.get(x).getValue();
                 report.setTotal(y);
+                request.getSession().setAttribute("totalPoints", y);
             }
             //Setting attributes back into the request.
             report.setMemberId(memberId);

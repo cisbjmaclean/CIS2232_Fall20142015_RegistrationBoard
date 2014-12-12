@@ -38,7 +38,8 @@
                 <tr>
                     <td>
                         <label class="alignCenter" for="pdHours">
-                            <strong>PD hours:&nbsp;&nbsp;</strong></label>
+                            <strong>PD points:&nbsp;&nbsp;</strong></label>
+                        <c:out value="${thisScreen.total}" />
                         <!-- the number of PD hours in the current year for the user -->
                     </td>
                 </tr>

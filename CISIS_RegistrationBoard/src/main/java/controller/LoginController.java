@@ -9,6 +9,7 @@ import database.CodeValueDAO;
 import database.ProfessionalDevelopmentDAO;
 import forms.Login;
 import forms.Menu;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +52,11 @@ public class LoginController {
             if (validCredentials) {
                 ProfessionalDevelopmentDAO.getProfessionalDevelopment();
                 CodeValueDAO.loadCodes(request);
+                // get year
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                // 
+                request.getSession().setAttribute("systemYear", year);
+                
                 mv = new ModelAndView("summary");
                 System.out.println("getting member for " + login.getUsername());
                 request.getSession().setAttribute("loggedInUserId", login.getUsername());
@@ -59,7 +65,7 @@ public class LoginController {
                 request.getSession().setAttribute("loggedInMember", theMember);
                 request.getSession().setAttribute("currentMember", theMember);
                 mv.addObject("memberRegistration", theMember);
-                mv.addObject("summaryScreen", MemberBO.getUserSummary(theMember.getMember().getMemberId()));
+                mv.addObject("summaryScreen", MemberBO.getUserSummary(request, theMember.getMember().getMemberId()));
             } else {
                 mv = new ModelAndView("login");
             }

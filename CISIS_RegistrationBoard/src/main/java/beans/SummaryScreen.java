@@ -12,6 +12,7 @@ public class SummaryScreen {
     private String middleName = "";
     private String lastName = "";
     private String lastUpdated = "";
+    private Object total = 0;
 
     public SummaryScreen() {
         // Do nothing
@@ -55,6 +56,14 @@ public class SummaryScreen {
 
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public Object getTotal() {
+        return total;
+    }
+
+    public void setTotal(Object total) {
+        this.total = total;
     }
 
 }

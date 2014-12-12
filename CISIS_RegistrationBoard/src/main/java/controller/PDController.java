@@ -25,7 +25,8 @@ public class PDController {
 
         MemberRegistration currentMember = (MemberRegistration) request.getSession().getAttribute("currentMember");
         event.setMemberId(currentMember.getMember().getMemberId());
-        
+        event.setFirstName(currentMember.getMember().getFirstName());
+        event.setLastName(currentMember.getMember().getLastName());
         System.out.println("The confirmation of pd add");
 
         //Check to see if this event requires hours to be entered.

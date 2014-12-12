@@ -25,7 +25,7 @@
                         <form:hidden path="firstName"/><form:hidden path="lastName"/>
                         <strong><fmt:message key="label.professional.development.confirm.name" /></strong>
 
-                        <c:out value="${event.firstName}" />&nbsp;<c:out value="${event.lastName}" />
+                        <c:out value="${event.firstName}" />&nbsp; <c:out value="${event.lastName}" />
                         <br />  
                         <form:hidden path="memberId" /><strong>
                             <fmt:message key="label.professional.development.confirm.memberId" /></strong>

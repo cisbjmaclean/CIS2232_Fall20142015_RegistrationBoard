@@ -160,7 +160,7 @@
             </tr>
             <tr>
                 <td colspan="1">
-                    <form:checkbox path="bilingual" value="bilingual" label="bilingual"/>
+                    <form:checkbox path="bilingual" value="bilingual" label="Bilingual (English/French)"/>
                 </td>
             </tr>
             <tr>

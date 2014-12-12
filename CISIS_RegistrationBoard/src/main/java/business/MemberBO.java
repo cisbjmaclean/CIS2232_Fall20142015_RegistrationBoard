@@ -10,6 +10,8 @@ import exceptions.PasswordException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpRequest;
 import util.Mail;
 
 /**
@@ -129,8 +131,8 @@ public class MemberBO {
      * @author Zachary Theriault
      * @since 2014/11/27
      */
-    public static ArrayList<SummaryScreen> getUserSummary(int memberId) {
-        return SummaryScreenDAO.getUserSummary(memberId);
+    public static ArrayList<SummaryScreen> getUserSummary(HttpServletRequest request, int memberId) {
+        return SummaryScreenDAO.getUserSummary(request, memberId);
     }
     
     // for get all list of waiting from ReportDAO

@@ -17,6 +17,10 @@ public class Event {
     private String firstName = "";
     private String lastName = "";
 
+    public Event() {
+        //do nothing
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -31,10 +35,6 @@ public class Event {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Event() {
-        //do nothing
     }
 
     public String getDescription() {
