@@ -24,7 +24,17 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>GetUserID</servlet-name>
+        <servlet-name>ActiveMemberEmails</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Notifications</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>MemberEd</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -37,8 +47,16 @@
         <url-pattern>/GetMemberName</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GetUserID</servlet-name>
-        <url-pattern>/GetUserID</url-pattern>
+        <servlet-name>ActiveMemberEmails</servlet-name>
+        <url-pattern>/ActiveMemberEmails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Notifications</servlet-name>
+        <url-pattern>/Notifications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberEd</servlet-name>
+        <url-pattern>/MemberEd</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

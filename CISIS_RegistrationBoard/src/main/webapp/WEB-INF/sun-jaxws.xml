@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="services.GetMemberName" name="GetMemberName" url-pattern="/GetMemberName"/>
-  <endpoint implementation="services.GetUserID" name="GetUserID" url-pattern="/GetUserID"/>
+  <endpoint implementation="services.ActiveMemberEmails" name="ActiveMemberEmails" url-pattern="/ActiveMemberEmails"/>
+  <endpoint implementation="services.Notifications" name="Notifications" url-pattern="/Notifications"/>
+  <endpoint implementation="services.MemberEd" name="MemberEd" url-pattern="/MemberEd"/>
 </endpoints>

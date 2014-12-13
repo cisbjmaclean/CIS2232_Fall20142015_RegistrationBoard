@@ -34,7 +34,7 @@ public class MemberName {
             String memberName = name.getname(id);
             System.out.println(memberName);
         } catch (Exception membererr) {
-            System.out.println(membererr + "Member does not exist");
+            System.out.println("Member does not exist");
         }
     }
 

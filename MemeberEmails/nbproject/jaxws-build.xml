@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-ActiveMemberEmails" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails"/>
+        <property name="wsdl-ActiveMemberEmails" location="xml-resources/web-service-references/ActiveMemberEmails/wsdl/localhost_8080/CISIS_RegistrationBoard/ActiveMemberEmails.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails" destdir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails" wsdl="${wsdl-ActiveMemberEmails}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CISIS_RegistrationBoard/ActiveMemberEmails?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-ActiveMemberEmails}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ActiveMemberEmails" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
+    </target>
+    <target name="wsimport-client-ActiveMemberEmails_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1"/>
+        <property name="wsdl-ActiveMemberEmails_1" location="xml-resources/web-service-references/ActiveMemberEmails_1/wsdl/localhost_8080/CISIS_RegistrationBoard/ActiveMemberEmails.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1" destdir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1" wsdl="${wsdl-ActiveMemberEmails_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CISIS_RegistrationBoard/ActiveMemberEmails?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-ActiveMemberEmails_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ActiveMemberEmails_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ActiveMemberEmails_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ActiveMemberEmails, wsimport-client-ActiveMemberEmails_1"/>
+</project>

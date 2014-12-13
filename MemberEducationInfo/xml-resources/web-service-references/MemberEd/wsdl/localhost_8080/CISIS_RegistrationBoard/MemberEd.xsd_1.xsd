@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="getMemberEd" type="tns:getMemberEd"/>
+
+<xs:element name="getMemberEdResponse" type="tns:getMemberEdResponse"/>
+
+<xs:complexType name="getMemberEd">
+<xs:sequence>
+<xs:element name="memberID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMemberEdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:memberEducation" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberEducation">
+<xs:sequence>
+<xs:element name="activeIndicator" type="xs:boolean"/>
+<xs:element name="coreIndicator" type="xs:boolean"/>
+<xs:element name="designation" type="xs:string" minOccurs="0"/>
+<xs:element name="institution" type="xs:string" minOccurs="0"/>
+<xs:element name="memberEducationSequence" type="xs:int"/>
+<xs:element name="memberId" type="xs:int"/>
+<xs:element name="programCode" type="xs:int"/>
+<xs:element name="programDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="provinceCode" type="xs:int"/>
+<xs:element name="provinceDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="xs:string" minOccurs="0"/>
+<xs:element name="year" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
