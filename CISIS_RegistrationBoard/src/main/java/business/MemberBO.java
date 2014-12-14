@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpRequest;
 import util.Mail;
 
 /**
@@ -82,15 +81,11 @@ public class MemberBO {
     }
 
     public static ArrayList<Member> getAllActiveMembers() {
-
         return MemberDAO.getAllActiveMembers();
-
     }
 
     public static String getAllActiveMembersEmails() {
-
         return MemberDAO.getAllActiveMembersEmails();
-
     }
 
     public static Member getMember(String memberId) {
@@ -134,7 +129,7 @@ public class MemberBO {
     public static ArrayList<SummaryScreen> getUserSummary(HttpServletRequest request, int memberId) {
         return SummaryScreenDAO.getUserSummary(request, memberId);
     }
-    
+
     // for get all list of waiting from ReportDAO
     public static ArrayList<Member> getAllConfirmMembers() {
         return ReportsDAO.getAllconfirmMembers();

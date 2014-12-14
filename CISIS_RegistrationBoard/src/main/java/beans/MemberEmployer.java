@@ -1,7 +1,5 @@
 package beans;
 
-import database.CodeValueDAO;
-
 /**
  *
  * @author bjmaclean
@@ -41,8 +39,6 @@ public class MemberEmployer {
         this.sequence = sequence;
     }
 
-    
-    
     public String getUserId() {
         return userId;
     }
@@ -51,8 +47,6 @@ public class MemberEmployer {
         this.userId = userId;
     }
 
-    
-    
     public boolean isPrimaryIndicator() {
         return primaryIndicator;
     }

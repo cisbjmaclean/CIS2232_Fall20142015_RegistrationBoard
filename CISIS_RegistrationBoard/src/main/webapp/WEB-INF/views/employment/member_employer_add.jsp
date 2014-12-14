@@ -26,7 +26,7 @@
     <spring:nestedPath path="memberEmployer">
 
         <table>
-                        <tr>
+            <tr>
                 <td>
                     <h2><fmt:message key="label.add.employer"/></h2>
                 </td>

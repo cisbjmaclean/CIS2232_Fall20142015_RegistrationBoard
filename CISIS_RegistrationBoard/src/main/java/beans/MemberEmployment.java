@@ -4,11 +4,10 @@ package beans;
  *
  * @author bjmaclean
  */
-public class MemberEmployment{
+public class MemberEmployment {
 
     private int memberId;
     private boolean primaryIndicator;
-   //  private String action;
     private int statusCode;
     private int currencyCode;
     private boolean practiceViaTelephoneIndicator;
@@ -40,8 +39,6 @@ public class MemberEmployment{
         this.practiceInPersonIndicator = practiceInPersonIndicator;
     }
 
-    
-    
     public int getMemberId() {
         return memberId;
     }
@@ -81,13 +78,5 @@ public class MemberEmployment{
     public void setPracticeJurisdictions(String practiceJurisdictions) {
         this.practiceJurisdictions = practiceJurisdictions;
     }
-
-//    public String getAction() {
-//        return action;
-//    }
-//
-//    public void setAction(String action) {
-//        this.action = action;
-//    }
 
 }

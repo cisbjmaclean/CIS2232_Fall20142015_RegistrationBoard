@@ -1,19 +1,5 @@
 package beans;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import static java.nio.file.StandardOpenOption.APPEND;
-import static java.nio.file.StandardOpenOption.CREATE;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import org.apache.commons.beanutils.BeanUtils;
-
 /**
  *
  * @author BJ
@@ -40,8 +26,6 @@ public class MemberRegistration {
         return member;
     }
 
-    
-    
     public void setMember(Member member) {
         this.member = member;
     }
@@ -54,7 +38,7 @@ public class MemberRegistration {
         this.website = website;
     }
 
-        public int getSalutationCode() {
+    public int getSalutationCode() {
         return salutationCode;
     }
 

@@ -2,7 +2,6 @@ package business;
 
 import beans.MemberEmployer;
 import beans.MemberEmployment;
-import database.MemberEducationDAO;
 import database.MemberEmployerDAO;
 import database.MemberEmploymentDAO;
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class MemberEmploymentBO {
         return;
     }
 
-        /**
+    /**
      * Delete the specified member education (set to inactive)
      *
      * @param memberId
@@ -37,7 +36,6 @@ public class MemberEmploymentBO {
 
     }
 
-    
     public static MemberEmployment loadMemberEmployment(int memberId) {
         MemberEmployment memberEmployment = new MemberEmployment();
         return memberEmployment;
@@ -57,7 +55,7 @@ public class MemberEmploymentBO {
         /* Want to check that the member has information for internship and 
          core education.  Check this and add messages for the user if applicable.
          */
-        request.setAttribute("memberEmployment",MemberEmploymentBO.getMemberEmployment(memberId));
+        request.setAttribute("memberEmployment", MemberEmploymentBO.getMemberEmployment(memberId));
         request.getSession().setAttribute("Employers", MemberEmploymentBO.getMemberEmployers(memberId));
 
     }

@@ -12,7 +12,6 @@ import static java.nio.file.StandardOpenOption.APPEND;
 import static java.nio.file.StandardOpenOption.CREATE;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import org.apache.commons.beanutils.BeanUtils;
 
 /**
  *
@@ -42,7 +41,7 @@ public class Member {
     private int genderCode;
     private String password;
     private int userType;
-    
+
     public static Path getPath() {
         return path;
     }
@@ -58,15 +57,11 @@ public class Member {
     public void setUserType(int userType) {
         this.userType = userType;
     }
-    
-    
-    
 
 //    public Member(int memberId) throws Exception {
 //        Member theMember = MemberBO.getMember(String.valueOf(memberId));
 //        BeanUtils.copyProperties(this, theMember);
 //    }
-
     public Member() {
         //do nothing
     }
@@ -86,7 +81,6 @@ public class Member {
     public void setNewUserId(String newUserId) {
         this.newUserId = newUserId;
     }
-
 
     public int getGenderCode() {
         return genderCode;
@@ -232,14 +226,12 @@ public class Member {
         this.password = password;
     }
 
-    
-    
     //Method that will timeStamp who logged into the registration board.
     public void fileWrite() throws IOException {
         OutputStream output;
-        BufferedWriter writer= null;
+        BufferedWriter writer = null;
         String timeStamp = new SimpleDateFormat("MM, dd : HH:mm:ss").format(Calendar.getInstance().getTime());
-        String toWrite = "User login: "+firstName+" "+lastName+"\t"+timeStamp;
+        String toWrite = "User login: " + firstName + " " + lastName + "\t" + timeStamp;
         if (writer == null) {
             try {
                 output = new BufferedOutputStream(Files.newOutputStream(path, CREATE, APPEND));
@@ -253,9 +245,7 @@ public class Member {
         writer.newLine();
         writer.flush();
         writer.close();
-        
+
     }
 
 }
-
-

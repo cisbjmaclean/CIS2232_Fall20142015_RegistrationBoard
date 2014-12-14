@@ -75,11 +75,12 @@ public class MemberEducationDAO {
 
     /**
      * Delete the specified member education (set to inactive)
+     *
      * @param memberId
-     * @param memberEducationSequence 
+     * @param memberEducationSequence
      */
-    public static void deleteMemberEducation(int memberId, int memberEducationSequence) throws Exception{
-        
+    public static void deleteMemberEducation(int memberId, int memberEducationSequence) throws Exception {
+
         System.out.println("inserting education");
         PreparedStatement ps = null;
         String sql = null;
@@ -92,7 +93,7 @@ public class MemberEducationDAO {
             conn = ConnectionUtils.getConnection();
 
             sql = "update member_education set me_active_ind = 0, updated_date_time = sysdate() "
-                + "where member_id = ? and me_sequence=?";
+                    + "where member_id = ? and me_sequence=?";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, memberId);
@@ -110,9 +111,7 @@ public class MemberEducationDAO {
         return;
 
     }
-        
 
-    
     public static ArrayList<MemberEducation> getMemberEducation(int memberId) {
         ArrayList<MemberEducation> education = new ArrayList();
         PreparedStatement ps = null;
@@ -121,7 +120,7 @@ public class MemberEducationDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM member_education WHERE member_id = " + memberId+ " and me_active_ind = 1";
+            sql = "SELECT * FROM member_education WHERE member_id = " + memberId + " and me_active_ind = 1";
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

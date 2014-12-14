@@ -30,13 +30,6 @@
                     <h2><fmt:message key="label.member.education"/></h2>
                 </td>
             </tr>
-            
-            
-            
-            
-            
-            
-
             <c:forEach var="thisEducation" items="${sessionScope.Education}" varStatus="loopCounter">
                 <tr>
                     <td>
@@ -86,12 +79,6 @@
             </c:forEach>
 
             <tr/>
-            
-            
-            
-            
-            
-            
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" name="action" value='<fmt:message key="label.add.education"/>'/>

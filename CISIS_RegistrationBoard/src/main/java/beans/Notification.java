@@ -2,15 +2,16 @@ package beans;
 
 /**
  * This action form will contain information about a notification in the system.
- * 
+ *
  * @author bjmaclean
  */
 public class Notification {
+
     private int memberId;
     private String userId;
     private String action;
     private String notificationDate;
-    private int notificationType; 
+    private int notificationType;
     private String notificationDetail;
     private int notificationId;
 
@@ -69,7 +70,5 @@ public class Notification {
     public void setNotificationId(int notificationId) {
         this.notificationId = notificationId;
     }
-    
-    
-    
+
 }

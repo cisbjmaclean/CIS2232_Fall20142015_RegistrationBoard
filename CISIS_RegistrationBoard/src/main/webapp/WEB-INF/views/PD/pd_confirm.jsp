@@ -40,17 +40,17 @@
                             <fmt:message key="label.professional.development.confirm.description" /></strong>
                         <c:out value="${event.description}" /><br />
                         <c:if test="${event.hour > 0}">
-                              <form:hidden path="hour" /><strong>
-                              <fmt:message key="label.professional.development.confirmHours" />
-                        </strong><c:out  value="${event.hour}" /></c:if><br />
+                            <form:hidden path="hour" /><strong>
+                                <fmt:message key="label.professional.development.confirmHours" />
+                            </strong><c:out  value="${event.hour}" /></c:if><br />
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2">
+                            <input type="submit" value=<fmt:message key="label.submit"/>
                     </td>
                 </tr>
-                <tr align="center">
-                    <td colspan="2">
-                        <input type="submit" value=<fmt:message key="label.submit"/>
-                </td>
-            </tr>
-        </table>
-    </spring:nestedPath>
-</form>
+            </table>
+        </spring:nestedPath>
+    </form>
 </body>

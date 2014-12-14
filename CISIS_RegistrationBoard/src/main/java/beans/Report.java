@@ -83,17 +83,15 @@ public class Report {
     public void setValue(double value) {
         this.value = value;
     }
-    
+
     //Calculates the value
     public void setValue() {
         //If no hours then value is the weight.
         if (hour == 0) {
             this.value = weight;
-        //If their is hours entered then take weight into consideration.    
+            //If their is hours entered then take weight into consideration.    
         } else {
             this.value = hour * weight;
         }
     }
 }
-
-

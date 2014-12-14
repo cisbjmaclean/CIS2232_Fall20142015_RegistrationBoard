@@ -59,11 +59,12 @@ public class NotificationDAO {
 
     /**
      * Delete the specified member education (set to inactive)
+     *
      * @param memberId
-     * @param memberEducationSequence 
+     * @param memberEducationSequence
      */
-    public static void deleteNotification(int notificationId) throws Exception{
-        
+    public static void deleteNotification(int notificationId) throws Exception {
+
         System.out.println("deleting notification");
         PreparedStatement ps = null;
         String sql = null;
@@ -76,7 +77,7 @@ public class NotificationDAO {
             conn = ConnectionUtils.getConnection();
 
             sql = "update notification set status_code = 0, updated_date_time = sysdate() "
-                + "where notification_id = ? ";
+                    + "where notification_id = ? ";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, notificationId);
@@ -93,9 +94,7 @@ public class NotificationDAO {
         return;
 
     }
-        
 
-    
     public static ArrayList<Notification> getNotifications() {
         ArrayList<Notification> notifications = new ArrayList();
         PreparedStatement ps = null;
@@ -123,7 +122,7 @@ public class NotificationDAO {
         } finally {
             DbUtils.close(ps, conn);
         }
-        System.out.println("DEBUGGING-Found "+notifications.size()+" notifications");
+        System.out.println("DEBUGGING-Found " + notifications.size() + " notifications");
         return notifications;
     }
 

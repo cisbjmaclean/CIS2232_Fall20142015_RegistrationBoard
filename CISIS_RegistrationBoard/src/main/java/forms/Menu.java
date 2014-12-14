@@ -2,7 +2,7 @@ package forms;
 
 public class Menu {
 
-private String action;
+    private String action;
 
     public String getAction() {
         return action;

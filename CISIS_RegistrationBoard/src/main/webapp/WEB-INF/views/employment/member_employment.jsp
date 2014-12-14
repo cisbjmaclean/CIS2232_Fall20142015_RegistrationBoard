@@ -75,72 +75,67 @@
                     <input type="submit" name="action" value='<fmt:message key="label.save"/>'>
                 </td>
             </tr>
-</form>
-                <form action="memberEmployment" method="post">
+    </form>
+    <form action="memberEmployment" method="post">
+        <tr>
+            <td>
+                <hr/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="alignCenter">
+                    <strong><fmt:message key="label.employers" /></strong></label>
+            </td>
+        </tr>
+        <!--New code changing-->
+
+
+        <c:forEach var="thisEmployer" items="${sessionScope.Employers}" varStatus="loopCounter">
+
             <tr>
                 <td>
-                    <hr/>
+                    <label class="alignCenter" for="name">
+                        <strong><fmt:message key="label.name" /></strong></label>
+                        <c:out value="${thisEmployer.name}" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label class="alignCenter">
-                        <strong><fmt:message key="label.employers" /></strong></label>
+                    <label class="alignCenter"  for="addressLine1">
+                        <strong><fmt:message key="label.address.line.1" /></strong></label>
+                        <c:out value="${thisEmployer.addressLine1}" />
                 </td>
             </tr>
-            <!--New code changing-->
-          
-
-            <c:forEach var="thisEmployer" items="${sessionScope.Employers}" varStatus="loopCounter">
-
-                 <tr>
-                    <td>
-                        <label class="alignCenter" for="name">
-                            <strong><fmt:message key="label.name" /></strong></label>
-                            <c:out value="${thisEmployer.name}" />
-                    </td>
-                 </tr>
-                 <tr>
-                    <td>
-                        <label class="alignCenter"  for="addressLine1">
-                            <strong><fmt:message key="label.address.line.1" /></strong></label>
-                            <c:out value="${thisEmployer.addressLine1}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="alignCenter"  for="addressLine2">
-                            <strong><fmt:message key="label.address.line.2" /></strong></label>
-                            <c:out value="${thisEmployer.addressLine2}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="alignCenter"  for="municipality">
-                            <strong><fmt:message key="label.municipality" /></strong></label>
-                            <c:out value="${thisEmployer.municipality}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="alignCenter"  for="postalCode">
-                            <strong><fmt:message key="label.postal.code"  /></strong></label>
-                            <c:out value="${thisEmployer.postalCode}" />
-                    </td>
-                </tr>
-
-            </c:forEach>
-                
-                
-                
-                
-
-            <tr align="center">
-                <td colspan="2">
-                    <input type="submit" name="action" value='<fmt:message key="label.add.employer"/>'/>
+            <tr>
+                <td>
+                    <label class="alignCenter"  for="addressLine2">
+                        <strong><fmt:message key="label.address.line.2" /></strong></label>
+                        <c:out value="${thisEmployer.addressLine2}" />
                 </td>
             </tr>
-        </table>
+            <tr>
+                <td>
+                    <label class="alignCenter"  for="municipality">
+                        <strong><fmt:message key="label.municipality" /></strong></label>
+                        <c:out value="${thisEmployer.municipality}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="alignCenter"  for="postalCode">
+                        <strong><fmt:message key="label.postal.code"  /></strong></label>
+                        <c:out value="${thisEmployer.postalCode}" />
+                </td>
+            </tr>
 
-    </spring:nestedPath>
+        </c:forEach>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit" name="action" value='<fmt:message key="label.add.employer"/>'/>
+            </td>
+        </tr>
+    </table>
+
+</spring:nestedPath>
 </form>

@@ -1,8 +1,5 @@
 package beans;
 
-import database.CodeValueDAO;
-
-
 /**
  *
  * @author bjmaclean
@@ -45,6 +42,5 @@ public class ChangePassword {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
-
 
 }

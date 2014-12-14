@@ -5,7 +5,6 @@ package beans;
  * @author Roger Myers
  * @since 2014/06/24
  */
-
 import java.io.StringWriter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -38,7 +37,6 @@ public class PDCount {
             StringWriter sw = new StringWriter();
             m.marshal(this, sw);
             xmlCount = sw.toString();
-            
 
         } catch (JAXBException ex) {
             ex.printStackTrace();

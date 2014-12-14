@@ -20,10 +20,6 @@
                     <td><c:out value="${thisCode.description}" /></td>
                 </tr>
             </c:forEach>
-
-
-
-
         </table>
     </form>
 </spring:nestedPath>

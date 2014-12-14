@@ -1,11 +1,9 @@
 package database;
 
-import beans.Member;
 import beans.MemberEmployment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.servlet.http.HttpServletRequest;
 import util.ConnectionUtils;
 import util.DbUtils;
 
@@ -45,14 +43,13 @@ public class MemberEmploymentDAO {
         return memberEmployment;
     }
 
-    
     public static void updateEmployment(MemberEmployment memberEmployment) throws Exception {
 
         System.out.println("updating employer");
         PreparedStatement ps = null;
         String sql = null;
         Connection conn = null;
-        
+
         /*
          * Setup the sql to update or insert the row.
          */

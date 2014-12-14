@@ -56,7 +56,7 @@ public class LoginController {
                 int year = Calendar.getInstance().get(Calendar.YEAR);
                 // 
                 request.getSession().setAttribute("systemYear", year);
-                
+
                 mv = new ModelAndView("summary");
                 System.out.println("getting member for " + login.getUsername());
                 request.getSession().setAttribute("loggedInUserId", login.getUsername());

@@ -12,16 +12,16 @@ import java.util.ArrayList;
  */
 public class NotificationBO {
 
-public static ArrayList<Notification> getNotifications(){
-    return NotificationDAO.getNotifications();
-}
+    public static ArrayList<Notification> getNotifications() {
+        return NotificationDAO.getNotifications();
+    }
 
-public static void insertNotification(Notification notification) throws Exception{
-    NotificationDAO.insertNotification(notification);
-}
+    public static void insertNotification(Notification notification) throws Exception {
+        NotificationDAO.insertNotification(notification);
+    }
 
-public static void deleteNotification(int notificationId) throws Exception{
-    NotificationDAO.deleteNotification(notificationId);
-}
+    public static void deleteNotification(int notificationId) throws Exception {
+        NotificationDAO.deleteNotification(notificationId);
+    }
 
 }

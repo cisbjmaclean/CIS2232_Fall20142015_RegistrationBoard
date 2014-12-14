@@ -1,12 +1,11 @@
 package beans;
 
-import database.CodeValueDAO;
-
 /**
  *
  * @author bjmaclean
  */
 public class MemberEducation {
+
     private int memberId;
     private int memberEducationSequence;
     private String userId;
@@ -19,7 +18,7 @@ public class MemberEducation {
     private String institution;
     private boolean coreIndicator;
     private boolean activeIndicator;
-    
+
     public static final int INTERNSHIP_PROGRAM_CODE = 7;
 
     public int getMemberEducationSequence() {
@@ -30,9 +29,6 @@ public class MemberEducation {
         this.memberEducationSequence = memberEducationSequence;
     }
 
-    
-    
-    
     public boolean isActiveIndicator() {
         return activeIndicator;
     }
@@ -41,7 +37,6 @@ public class MemberEducation {
         this.activeIndicator = activeIndicator;
     }
 
-    
     public int getMemberId() {
         return memberId;
     }
@@ -122,7 +117,4 @@ public class MemberEducation {
         this.designation = designation;
     }
 
-    
-
-    
 }

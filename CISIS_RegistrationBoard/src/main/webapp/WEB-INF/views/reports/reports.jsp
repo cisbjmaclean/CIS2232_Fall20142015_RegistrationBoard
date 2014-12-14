@@ -16,64 +16,64 @@
 
 <body>
 
-<spring:nestedPath path="menu">
-    <form action="" method="post">
-        <table>
-            <tr>
-                <td colspan="2">
-                    <h2>Inactive Members</h2>
-                    <a href="memberAdmin?action=activeAll">Activate all members</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    ${message}${informationMessage}
-                </td>
-            </tr>
-
-            <c:forEach var="thisMember" items="${members}" varStatus="loopCounter">
+    <spring:nestedPath path="menu">
+        <form action="" method="post">
+            <table>
                 <tr>
-                    <td>
-                        <c:out value="${thisMember.lastName}" />, <c:out value="${thisMember.firstName}" />
-                    </td>
-                    <td>
-                        <a href="memberAdmin?action=active&memberId=${thisMember.memberId}">Active</a>
+                    <td colspan="2">
+                        <h2>Inactive Members</h2>
+                        <a href="memberAdmin?action=activeAll">Activate all members</a>
                     </td>
                 </tr>
-            </c:forEach>
-                
-            <tr>
-                <td>
-                   <hr />
-                </td>
-            </tr>
-            
-            <!-- For all list of waiting final confirm-->
-            <tr>                
-                <td colspan="2">
-                    <h2>Confirmed Members</h2>
-                    <a href="memberAdmin?action=confirmAll">Confirm all members</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    ${message}${informationMessage}
-                </td>
-            </tr>
-
-            <c:forEach var="thisConfirm" items="${memberConfirm}" varStatus="loopCounter">
                 <tr>
-                    <td>
-                        <c:out value="${thisConfirm.lastName}" />, <c:out value="${thisConfirm.firstName}" />
-                    </td>
-                    <td>
-                        <a href="memberAdmin?action=confirm&memberId=${thisConfirm.memberId}">confirm</a>
+                    <td colspan="2">
+                        ${message}${informationMessage}
                     </td>
                 </tr>
-            </c:forEach>
-        </table>
-    </form>
-</spring:nestedPath>
+
+                <c:forEach var="thisMember" items="${members}" varStatus="loopCounter">
+                    <tr>
+                        <td>
+                            <c:out value="${thisMember.lastName}" />, <c:out value="${thisMember.firstName}" />
+                        </td>
+                        <td>
+                            <a href="memberAdmin?action=active&memberId=${thisMember.memberId}">Active</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+
+                <tr>
+                    <td>
+                        <hr />
+                    </td>
+                </tr>
+
+                <!-- For all list of waiting final confirm-->
+                <tr>                
+                    <td colspan="2">
+                        <h2>Confirmed Members</h2>
+                        <a href="memberAdmin?action=confirmAll">Confirm all members</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        ${message}${informationMessage}
+                    </td>
+                </tr>
+
+                <c:forEach var="thisConfirm" items="${memberConfirm}" varStatus="loopCounter">
+                    <tr>
+                        <td>
+                            <c:out value="${thisConfirm.lastName}" />, <c:out value="${thisConfirm.firstName}" />
+                        </td>
+                        <td>
+                            <a href="memberAdmin?action=confirm&memberId=${thisConfirm.memberId}">confirm</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
+    </spring:nestedPath>
 
 </body>
 

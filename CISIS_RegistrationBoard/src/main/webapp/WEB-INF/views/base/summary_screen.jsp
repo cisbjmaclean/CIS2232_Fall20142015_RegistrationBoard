@@ -25,22 +25,21 @@
                     <td>
                         <label class="alignCenter" for="name">
                             <strong>Name:&nbsp;&nbsp;</strong></label>
-                        <c:out value="${thisScreen.firstName}" /> <c:out value="${thisScreen.middleName}" /> <c:out value="${thisScreen.lastName}" />
+                            <c:out value="${thisScreen.firstName}" /> <c:out value="${thisScreen.middleName}" /> <c:out value="${thisScreen.lastName}" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="alignCenter" for="lastUpdated">
                             <strong>Last updated:&nbsp;&nbsp;</strong></label>
-                        <c:out value="${thisScreen.lastUpdated}" />
+                            <c:out value="${thisScreen.lastUpdated}" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="alignCenter" for="pdHours">
                             <strong>PD points:&nbsp;&nbsp;</strong></label>
-                        <c:out value="${thisScreen.total}" />
-                        <!-- the number of PD hours in the current year for the user -->
+                            <c:out value="${thisScreen.total}" />
                     </td>
                 </tr>
             </c:forEach>

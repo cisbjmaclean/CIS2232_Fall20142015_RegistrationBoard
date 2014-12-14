@@ -1,9 +1,6 @@
 package database;
 
-import beans.Member;
-import beans.MemberEducation;
 import beans.MemberEmployer;
-import beans.MemberEmployment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,11 +16,12 @@ public class MemberEmployerDAO {
 
     /**
      * Delete the specified member employer (set to inactive)
+     *
      * @param memberId
-     * @param memberEmployerSequence 
+     * @param memberEmployerSequence
      */
-    public static void deleteMemberEmployer(int memberId, int memberEmployerSequence) throws Exception{
-        
+    public static void deleteMemberEmployer(int memberId, int memberEmployerSequence) throws Exception {
+
         System.out.println("deleting an employer");
         PreparedStatement ps = null;
         String sql = null;
@@ -36,7 +34,7 @@ public class MemberEmployerDAO {
             conn = ConnectionUtils.getConnection();
 
             sql = "update member_employer set me_active_ind = 0, updated_date_time = sysdate() "
-                + "where member_id = ? and me_sequence=?";
+                    + "where member_id = ? and me_sequence=?";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, memberId);
@@ -55,7 +53,6 @@ public class MemberEmployerDAO {
 
     }
 
-    
     /**
      * This method will insert.
      *
@@ -163,7 +160,6 @@ public class MemberEmployerDAO {
 //        return;
 //
 //    }
-
     public static ArrayList<MemberEmployer> getMemberEmployers(int memberId) {
         ArrayList<MemberEmployer> employers = new ArrayList();
         PreparedStatement ps = null;

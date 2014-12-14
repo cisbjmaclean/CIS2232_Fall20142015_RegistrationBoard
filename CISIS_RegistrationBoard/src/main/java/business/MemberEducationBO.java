@@ -5,7 +5,6 @@ import database.MemberEducationDAO;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
-
 /**
  * This class will handle the processing associated with a business object.
  *
@@ -15,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 public class MemberEducationBO {
 
     public static void insertMemberEducation(MemberEducation memberEducation) throws Exception {
-        //Any validation?
-
         MemberEducationDAO.insertMemberEducation(memberEducation);
     }
 
@@ -31,22 +28,17 @@ public class MemberEducationBO {
      * @param memberEducationSequence
      */
     public static void deleteMemberEducation(int memberId, int memberEducationSequence) throws Exception {
-
         MemberEducationDAO.deleteMemberEducation(memberId, memberEducationSequence);
-
     }
 
     public static void setupEducation(HttpServletRequest request, int memberId) {
-    //public static void setupEducation(HttpServletRequest request, ActionMessages messages, int memberId) {
+        //public static void setupEducation(HttpServletRequest request, ActionMessages messages, int memberId) {
 
-        
         /* Want to check that the member has information for internship and 
          core education.  Check this and add messages for the user if applicable.
          */
-
         if (!MemberEducationBO.checkEducation(memberId, MemberEducation.INTERNSHIP_PROGRAM_CODE)) {
 //            messages.add("warn", (new ActionMessage("label.no.internship")));
-            
 
         }
 
@@ -98,7 +90,5 @@ public class MemberEducationBO {
         }
         return foundProgram;
     }
-
-
 
 }

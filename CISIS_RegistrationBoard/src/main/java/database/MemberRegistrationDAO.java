@@ -16,7 +16,6 @@ import util.DbUtils;
  */
 public class MemberRegistrationDAO {
 
-    
     public static void addMemberRegistration(MemberRegistration memberBoard) throws Exception {
 
         System.out.println("inserting a new member");
@@ -43,8 +42,8 @@ public class MemberRegistrationDAO {
             ps.setBoolean(4, memberBoard.isEmailToMembers());
             ps.setBoolean(5, memberBoard.isEmailToBusiness());
             ps.setBoolean(6, memberBoard.isEmailToGovernment());
-            ps.setBoolean(7, memberBoard.isEmailToPEIDAExecutive());   
-            ps.setString(8, memberBoard.getWebsite()); 
+            ps.setBoolean(7, memberBoard.isEmailToPEIDAExecutive());
+            ps.setString(8, memberBoard.getWebsite());
             ps.setBoolean(9, memberBoard.isBilingual());
             ps.setString(10, memberBoard.getBilingualOther());
             ps.setBoolean(11, memberBoard.isCanadianCitizen());
@@ -53,16 +52,15 @@ public class MemberRegistrationDAO {
             ps.setBoolean(14, memberBoard.isImmigrantAuthorized());
             ps.setString(15, memberBoard.getImmigrantAuthorizedExpiryDate());
             ps.executeUpdate();
-            
-         //   ps.setInt(2, memberBoard.getDivisionCode());
-         //   ps.setInt(3, memberBoard.getLevelCode());
-         //   ps.setInt(4, memberBoard.getClubCode());
-         //   ps.setString(5, memberBoard.getRegistrationDate());
-         //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
-         //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
-         //   ps.setInt(8, 0);
-         //   ps.executeUpdate();
 
+         //   ps.setInt(2, memberBoard.getDivisionCode());
+            //   ps.setInt(3, memberBoard.getLevelCode());
+            //   ps.setInt(4, memberBoard.getClubCode());
+            //   ps.setString(5, memberBoard.getRegistrationDate());
+            //   ps.setBoolean(6, memberBoard.isAllowInformationOnWebsite());
+            //   ps.setBoolean(7, memberBoard.isAllowPhotoUse());
+            //   ps.setInt(8, 0);
+            //   ps.executeUpdate();
         } catch (Exception e) {
             String errorMessage = e.getMessage();
             e.printStackTrace();
@@ -125,7 +123,6 @@ public class MemberRegistrationDAO {
                 memberBoard.setImmigrantAuthorized(rs.getBoolean("immigrant_authorized_ind"));
                 memberBoard.setImmigrantAuthorizedExpiryDate(rs.getString("immigrant_authorized_expiry_date"));
 
-            
             }
         } catch (Exception e) {
             String errorMessage = e.getMessage();
@@ -155,9 +152,9 @@ public class MemberRegistrationDAO {
         //Have to update the member based on member id.
 
         MemberDAO.updateMember(member.getMember());
-        
+
         //Also update bio_registration fields
-                PreparedStatement psMember = null;
+        PreparedStatement psMember = null;
         String sql = null;
         Connection conn = null;
         /*
@@ -172,15 +169,15 @@ public class MemberRegistrationDAO {
                     + "`bilingual_other`=?, `canadian_citizen_ind`=?, `landed_immigrant_ind`=?,"
                     + "`country_of_origin_code`=?, `immigrant_authorized_ind`=?,`immigrant_authorized_expiry_date`=?"
                     + "WHERE member_id = ? ";
-            
+
             psMember = conn.prepareStatement(sql);
             psMember.setInt(1, member.getSalutationCode());
             psMember.setString(2, member.getPreviousSurnames());
             psMember.setBoolean(3, member.isEmailToMembers());
             psMember.setBoolean(4, member.isEmailToBusiness());
             psMember.setBoolean(5, member.isEmailToGovernment());
-            psMember.setBoolean(6, member.isEmailToPEIDAExecutive());   
-            psMember.setString(7, member.getWebsite()); 
+            psMember.setBoolean(6, member.isEmailToPEIDAExecutive());
+            psMember.setString(7, member.getWebsite());
             psMember.setBoolean(8, member.isBilingual());
             psMember.setString(9, member.getBilingualOther());
             psMember.setBoolean(10, member.isCanadianCitizen());
@@ -190,17 +187,17 @@ public class MemberRegistrationDAO {
             psMember.setString(14, member.getImmigrantAuthorizedExpiryDate());
             psMember.setInt(15, member.getMember().getMemberId());
             psMember.executeUpdate();
- 
+
         //    psMember = conn.prepareStatement(sql);
-        //    psMember.setInt(1, member.getDivisionCode());
-        //    psMember.setInt(2, member.getLevelCode());
-        //    psMember.setInt(3, member.getClubCode());
-        //    psMember.setString(4, member.getRegistrationDate());
-        //    psMember.setBoolean(5, member.isAllowInformationOnWebsite());
-        //    psMember.setBoolean(6, member.isAllowPhotoUse());
-        //    psMember.setInt(7, member.getPaymentStatusCode());
-        //    psMember.setInt(8, member.getMember().getMemberId());
-        //    psMember.executeUpdate();
+            //    psMember.setInt(1, member.getDivisionCode());
+            //    psMember.setInt(2, member.getLevelCode());
+            //    psMember.setInt(3, member.getClubCode());
+            //    psMember.setString(4, member.getRegistrationDate());
+            //    psMember.setBoolean(5, member.isAllowInformationOnWebsite());
+            //    psMember.setBoolean(6, member.isAllowPhotoUse());
+            //    psMember.setInt(7, member.getPaymentStatusCode());
+            //    psMember.setInt(8, member.getMember().getMemberId());
+            //    psMember.executeUpdate();
         } catch (Exception e) {
             String errorMessage = e.getMessage();
             throw e;
@@ -208,6 +205,5 @@ public class MemberRegistrationDAO {
             DbUtils.close(psMember, conn);
         }
 
-        
     }
 }

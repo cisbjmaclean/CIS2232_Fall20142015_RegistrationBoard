@@ -18,10 +18,10 @@ public class CodeValue {
         this.codeValueSequence = codeValueSequence;
     }
 
-    public CodeValue(){
+    public CodeValue() {
         //nothing.
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -54,5 +54,4 @@ public class CodeValue {
         this.codeValueSequence = codeValueSequence;
     }
 
-    
 }
