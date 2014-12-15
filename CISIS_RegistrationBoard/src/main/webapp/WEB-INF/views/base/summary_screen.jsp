@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="memberAdmin?action=active&memberId=${thisScreen.memberId}">Confirm</a>
+                        <a href="memberAdmin?action=userConfirm&memberId=${thisScreen.memberId}">Confirm</a>
                     </td>
                 </tr>
             </c:forEach>

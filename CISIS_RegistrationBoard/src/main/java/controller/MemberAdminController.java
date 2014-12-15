@@ -112,7 +112,7 @@ public class MemberAdminController {
 
             message = "user confirm information";
             mv = new ModelAndView("reports");
-            mv.addObject("informationMessage", message);
+            
             mv.addObject("members", MemberBO.getAllInactiveMembers());
             mv.addObject("memberConfirm", MemberBO.getAllConfirmMembers());
         } else {
