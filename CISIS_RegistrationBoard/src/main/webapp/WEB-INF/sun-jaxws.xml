@@ -4,4 +4,5 @@
   <endpoint implementation="services.ActiveMemberEmails" name="ActiveMemberEmails" url-pattern="/ActiveMemberEmails"/>
   <endpoint implementation="services.Notifications" name="Notifications" url-pattern="/Notifications"/>
   <endpoint implementation="services.MemberEd" name="MemberEd" url-pattern="/MemberEd"/>
+  <endpoint implementation="services.GetUserID" name="GetUserID" url-pattern="/GetUserID"/>
 </endpoints>

@@ -75,6 +75,7 @@
                     <input type="submit" name="action" value='<fmt:message key="label.save"/>'>
                 </td>
             </tr>
+            
     </form>
     <form action="memberEmployment" method="post">
         <tr>

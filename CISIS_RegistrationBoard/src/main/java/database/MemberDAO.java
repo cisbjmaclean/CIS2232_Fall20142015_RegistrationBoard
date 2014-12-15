@@ -33,9 +33,9 @@ public class MemberDAO {
             }
             member.setMemberId(nextMESequence);
             sql = "INSERT INTO member "
-                    + "  (`member_id`, `user_id`, `organization_type`, `status_type`, `confirm_status`"
+                    + "  (`member_id`, `user_id`, `organization_type`, `status_type`, `confirm_status`,"
                     + "   `user_type`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) "
-                    + "  VALUES (?, ?, ?, ?, ?,"
+                    + "  VALUES (?, ?, ?, ?, ?, ?,"
                     + "  sysdate(), ?, sysdate(), ?)";
 
             ps = conn.prepareStatement(sql);

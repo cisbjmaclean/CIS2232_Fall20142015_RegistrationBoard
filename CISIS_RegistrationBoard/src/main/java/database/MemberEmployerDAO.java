@@ -73,7 +73,8 @@ public class MemberEmployerDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT max(me_sequence) FROM member_education WHERE member_id = " + memberEmployer.getMemberId();
+            sql = "SELECT max(me_sequence) FROM member_employer WHERE member_id = " + memberEmployer.getMemberId();
+            String temp = memberEmployer.getUserId();
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -168,7 +169,7 @@ public class MemberEmployerDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM member_employer WHERE member_id = " + memberId + " and me_active_ind = 1";
+            sql = "SELECT * FROM member_employer WHERE member_id = " + memberId;
             //sql = "SELECT * FROM member_employer WHERE member_id = 0 and me_active_ind = 1";
 
             ps = conn.prepareStatement(sql);

@@ -200,7 +200,7 @@
             </tr>
             <tr align="center">
                 <td colspan="2">
-                    <input type="submit" value=<fmt:message key="label.save"/>/>
+                    <input type="submit" value='<fmt:message key="label.save"/>'/>
                 </td>
             </tr>
         </table>

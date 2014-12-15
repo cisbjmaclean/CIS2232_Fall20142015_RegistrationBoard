@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2014 at 06:19 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Generation Time: Dec 12, 2014 at 03:11 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -208,7 +208,6 @@ CREATE TABLE IF NOT EXISTS `member` (
   `user_id` varchar(20) NOT NULL COMMENT 'Member''s user id',
   `organization_type` int(6) NOT NULL COMMENT 'A reference to the organization code (1)to which the member belongs.',
   `status_type` int(6) NOT NULL COMMENT 'A reference to the status code (2).',
-  `confirm_status` int(5) NOT NULL,
   `user_type` int(11) NOT NULL COMMENT 'Code type 17',
   `created_date_time` datetime NOT NULL COMMENT 'Created date/time',
   `created_user_id` varchar(20) NOT NULL COMMENT 'Created user id ',
@@ -221,8 +220,11 @@ CREATE TABLE IF NOT EXISTS `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`member_id`, `user_id`, `organization_type`, `status_type`, `confirm_status`, `user_type`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
-(1, 'bjmaclean', 1, 1, 1, 1, '2014-08-05 00:00:00', 'Admin', '2014-11-28 09:29:18', 'bjmaclean');
+INSERT INTO `member` (`member_id`, `user_id`, `organization_type`, `status_type`, `user_type`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
+(1, 'bjmaclean', 1, 2, 1, '2014-08-05 00:00:00', 'Admin', '2014-11-28 09:29:18', 'bjmaclean'),
+(7, '1052', 1, 1, 2, '2014-08-16 22:52:50', '', '2014-08-16 22:52:50', ''),
+(8, 'AlanNormal', 1, 1, 2, '2014-08-18 15:08:32', '', '2014-08-18 15:08:32', ''),
+(9, 'AlanAdmin', 1, 1, 1, '2014-08-18 15:09:03', '', '2014-08-18 15:09:03', '');
 
 -- --------------------------------------------------------
 
@@ -280,7 +282,9 @@ CREATE TABLE IF NOT EXISTS `member_bio` (
 --
 
 INSERT INTO `member_bio` (`member_id`, `first_name`, `middle_name`, `last_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `home_phone`, `cell_phone`, `work_phone`, `work_phone_extension`, `fax_number`, `email_address`, `date_of_birth`, `gender_code`) VALUES
-(1, 'Bruce', 'John', 'MacLean', '69 Bonavista Ave.', '', 'Stratford', 5, 'c1b0e3', '9025691111', NULL, '9025669663', '663', '9022225555', 'bjmaclean@hollandcollege.com', '2000-01-05', 2);
+(2, 'Steve', 'Joseph', 'Banks', '333 There Street', NULL, 'Charlottetown', 5, 'c1b0e3', '9025692222', NULL, NULL, NULL, NULL, 'stevebanks@hollandcollege.com', '19950-01-0', 1),
+(1, 'Bruce', 'John', 'MacLean', '69 Bonavista Ave.', '', 'Stratford', 5, 'c1b0e3', '9025691111', NULL, '9025669663', '663', '9022225555', 'bjmaclean@hollandcollege.com', '2000-01-05', 2),
+(10, 'Trevor', 'L', 'Heffel', 'holland college', 'summerside', '', 1, '', '', NULL, '', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -343,7 +347,9 @@ CREATE TABLE IF NOT EXISTS `member_education` (
 INSERT INTO `member_education` (`member_id`, `me_sequence`, `program_code`, `designation`, `me_year`, `me_province_code`, `me_institution`, `me_core_ind`, `me_active_ind`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
 (1, 1, 1, '', 2010, 1, 'UPEI', 1, 0, '2014-06-15 00:00:00', 'BJMACLEAN', '2014-08-17 00:06:11', 'BJMACLEAN'),
 (1, 2, 2, '', 2015, 4, 'mcm', 1, 0, '2014-06-15 22:20:10', '', '2014-06-21 19:01:31', ''),
-(1, 3, 2, 'Science', 1995, 5, 'McMaster', 0, 1, '2014-06-15 22:54:41', '', '2014-06-15 22:54:41', '');
+(1, 3, 2, 'Science', 1995, 5, 'McMaster', 0, 1, '2014-06-15 22:54:41', '', '2014-06-15 22:54:41', ''),
+(9, 1, 3, 'BSc', 1998, 4, 'UPEI', 1, 1, '2014-08-25 09:46:02', 'AlanAdmin', '2014-08-25 09:46:02', 'AlanAdmin'),
+(9, 2, 7, '', 2000, 4, 'Queen Elizabeth Hospital', 1, 1, '2014-08-25 09:46:30', 'AlanAdmin', '2014-08-25 09:46:30', 'AlanAdmin');
 
 -- --------------------------------------------------------
 
@@ -373,13 +379,6 @@ CREATE TABLE IF NOT EXISTS `member_employer` (
   `updated_user_id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `member_employer`
---
-
-INSERT INTO `member_employer` (`member_id`, `me_sequence`, `me_active_ind`, `member_employer_primary_ind`, `employer_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `position_code`, `practice_area_code`, `employment_status_code`, `employment_category_code`, `funding_source_code`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
-(1, 1, 0, 1, '1', '2', '3', '4', 4, '5', 1, 1, 1, 1, 1, '2014-08-01 22:05:06', '', '2014-08-17 00:07:34', '');
-
 -- --------------------------------------------------------
 
 --
@@ -401,7 +400,14 @@ CREATE TABLE IF NOT EXISTS `member_employment` (
 --
 
 INSERT INTO `member_employment` (`member_id`, `employment_status_code`, `currency_code`, `practice_via_telephone_ind`, `practice_via_internet_ind`, `practice_in_person_ind`, `practice_jurisdictions`) VALUES
-(1, 1, 2, 1, 0, 1, 'TEST');
+(1, 1, 2, 1, 0, 1, 'TEST'),
+(3, NULL, NULL, 0, 0, 0, NULL),
+(4, NULL, NULL, 0, 0, 0, NULL),
+(5, NULL, NULL, 0, 0, 0, NULL),
+(6, NULL, NULL, 0, 0, 0, NULL),
+(7, NULL, NULL, 0, 0, 0, NULL),
+(8, NULL, NULL, 0, 0, 0, NULL),
+(9, NULL, NULL, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
