@@ -43,7 +43,7 @@ public class MemberDAO {
             ps.setString(2, member.getNewUserId());
             ps.setInt(3, 1);
             ps.setInt(4, 1);
-            ps.setInt(5, 2);
+            ps.setInt(5, 0);
             ps.setInt(6, member.getUserType());
             ps.setString(7, member.getUserId());
             ps.setString(8, member.getUserId());

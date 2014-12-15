@@ -101,6 +101,20 @@ public class MemberAdminController {
             mv = new ModelAndView("reports");
             mv.addObject("informationMessage", message);
             mv.addObject("members", MemberBO.getAllConfirmMembers());
+        } else if (actionSpecified != null && actionSpecified.equalsIgnoreCase("userConfirm")) {
+            try {
+                aMember = MemberBO.getMember(request.getParameter("memberId"));
+                MemberBO.userConfirm(aMember);
+            } catch (Exception ex) {
+                Logger.getLogger(MemberAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("There was an error deleting the member.");
+            }
+
+            message = "user confirm information";
+            mv = new ModelAndView("reports");
+            mv.addObject("informationMessage", message);
+            mv.addObject("members", MemberBO.getAllInactiveMembers());
+            mv.addObject("memberConfirm", MemberBO.getAllConfirmMembers());
         } else {
             //Get the memberBio
             MemberRegistration memberRegistration = MemberRegistrationBO.getMember(request.getParameter("memberId"));

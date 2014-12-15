@@ -143,5 +143,9 @@ public class MemberBO {
         ReportsDAO.confirmaMembers(aMember);
         return ReportsDAO.getAllconfirmMembers();
     }
+    
+    public static void userConfirm(Member aMember) {
+        ReportsDAO.userConfirmMembers(aMember);
+    }
 
 }

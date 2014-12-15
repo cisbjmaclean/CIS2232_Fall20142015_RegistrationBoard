@@ -277,4 +277,29 @@ public class ReportsDAO extends javax.servlet.http.HttpServlet implements javax.
         }
         return members;
     }
+
+    public static void userConfirmMembers(Member aMember) {
+        PreparedStatement ps = null;
+        String sql = null;
+        Connection conn = null;
+        int id = aMember.getMemberId();
+        System.out.println("member id = " + id);
+
+        try {
+            conn = ConnectionUtils.getConnection();
+
+            sql = "UPDATE member SET confirm_status = 2 where "
+                    + "confirm_status = 0 and member_id = ?";
+
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, aMember.getMemberId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            String errorMessage = e.getMessage();
+            System.out.println(errorMessage);
+            e.printStackTrace();
+        } finally {
+            DbUtils.close(ps, conn);
+        }
+    }
 }
